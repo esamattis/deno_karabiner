@@ -803,10 +803,18 @@
           "simple_modifications": [
             {
               "from": {
+                "key_code": "application"
+              },
+              "to": {
+                "key_code": "right_option"
+              }
+            },
+            {
+              "from": {
                 "key_code": "grave_accent_and_tilde"
               },
               "to": {
-                "key_code": "non_us_backslash"
+                "key_code": "escape"
               }
             },
             {
@@ -839,14 +847,6 @@
               },
               "to": {
                 "key_code": "right_command"
-              }
-            },
-            {
-              "from": {
-                "key_code": "application"
-              },
-              "to": {
-                "key_code": "right_option"
               }
             }
           ]
