@@ -46,6 +46,31 @@
             ]
           },
           {
+            "description": "HYPER right command",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_control",
+                    "modifiers": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "backtick fix",
             "manipulators": [
               {
@@ -61,46 +86,6 @@
                   },
                   {
                     "key_code": "spacebar"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "Easier curlies",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "non_us_backslash",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_shift"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "9",
-                    "modifiers": [
-                      "left_shift",
-                      "left_alt"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "non_us_backslash"
-                },
-                "to": [
-                  {
-                    "key_code": "8",
-                    "modifiers": [
-                      "left_shift",
-                      "left_alt"
-                    ]
                   }
                 ],
                 "type": "basic"
@@ -714,6 +699,22 @@
               "to": {
                 "key_code": "grave_accent_and_tilde"
               }
+            },
+            {
+              "from": {
+                "key_code": "right_option"
+              },
+              "to": {
+                "key_code": "right_command"
+              }
+            },
+            {
+              "from": {
+                "key_code": "application"
+              },
+              "to": {
+                "key_code": "right_option"
+              }
             }
           ]
         },
@@ -851,16 +852,7 @@
         "delay_milliseconds_before_open_device": 1000
       },
       "selected": true,
-      "simple_modifications": [
-        {
-          "from": {
-            "key_code": "application"
-          },
-          "to": {
-            "key_code": "right_command"
-          }
-        }
-      ],
+      "simple_modifications": [],
       "virtual_hid_keyboard": {
         "country_code": 0,
         "mouse_key_xy_scale": 100
