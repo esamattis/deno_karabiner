@@ -16,7 +16,7 @@
         },
         "rules": [
           {
-            "description": "hyper caps loc",
+            "description": "HYPER caps loc",
             "manipulators": [
               {
                 "from": {
@@ -502,7 +502,7 @@
             ]
           },
           {
-            "description": "Change left_command+hjkl to arrow keys",
+            "description": "HYPER: hjkl to arrow keys",
             "manipulators": [
               {
                 "from": {
