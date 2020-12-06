@@ -2,9 +2,22 @@
 
 Write Complex Modifications for [Karabiner
 Elements](https://karabiner-elements.pqrs.org/) using Typescript and
-[Deno](https://deno.land/) and enjoy the autocomplete and type safety!
+[Deno](https://deno.land/).
 
-Example `generate.ts`:
+## Why?
+
+Karabiner Complex Modification are JSON and complex JSON files are too editor
+friendly. By moving to TypeScript we gain following:
+
+-   Ability write comments
+-   Variables
+-   Autocomplete
+-   Type safety. The key codes etc. are typed
+    -   Although this is not 100% complete. PRs welcome!
+
+## Usage
+
+Create `generate.ts`:
 
 ```tsx
 import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
