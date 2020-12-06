@@ -39,7 +39,7 @@ deno run --allow-env --allow-read --allow-write generate.ts
 
 This will write the rules to the "Default Profile" in your Karabiner config
 in `~/.config/karabiner/karabiner.json`. It will not touch any other options.
-The chages will be in effect immediately if you have Karabiner running.
+The changes will be in effect immediately if you have Karabiner running.
 
 If you want to try on a different file you can pass it as the second arg to
 `.writeToProfile()`.
