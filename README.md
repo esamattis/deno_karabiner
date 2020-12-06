@@ -107,7 +107,7 @@ pressed alone it will emit `escape`.
 Hyper Keys can be used the create whole new "Layers" with `.bindKey()`.
 
 For example in the finnish mac keyboard layout the curly brackets are really
-painful to type (imo 😉) since it needs three keys: `shift + option + 8/9
+painful to type (imo 😉) since it needs three keys: `shift + option + 8/9`
 which are in awkward positions.
 
 So here's how to type them with `Caps Lock + d/f`
