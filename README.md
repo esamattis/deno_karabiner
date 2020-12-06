@@ -105,7 +105,7 @@ hyper1.bindKey({
     description: "Open curly bracket",
 
     // Combine the hyper key with key "d"
-    from: "d",
+    key: "d",
 
     // Emit open curly bracket keys
     to: {
@@ -116,7 +116,7 @@ hyper1.bindKey({
 
 hyper1.bindKey({
     description: "Close curly bracket",
-    from: "f",
+    key: "f",
     to: {
         key_code: "9",
         modifiers: ["left_shift", "left_alt"],

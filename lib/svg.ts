@@ -84,7 +84,7 @@ export async function writeHyperKeyImage(options: {
         return hyper.getBindings().map((binding) => {
             return {
                 hyperKeyId: hyper.id,
-                keyCode: binding.from,
+                keyCode: binding.key,
                 symbol: binding.symbol ?? binding.description.slice(0, 5),
             };
         });

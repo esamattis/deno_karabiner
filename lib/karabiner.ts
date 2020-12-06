@@ -266,7 +266,14 @@ export interface HyperKeyBinding {
      * Symbol for the image generator
      */
     symbol?: string;
-    from: Key;
+    /**
+     * Key to bind the hyper key to
+     */
+    key: Key;
+
+    /**
+     * Emit these
+     */
     to: KeyPressTo | KeyPressTo[];
 }
 
@@ -325,12 +332,12 @@ export class HyperKey {
 
     bindKey(newBinding: HyperKeyBinding) {
         const existing = this.bindings.find((bin) => {
-            return newBinding.from === bin.from;
+            return newBinding.key === bin.key;
         });
 
         if (existing) {
             throw new Error(
-                `Cannot bind "${newBinding.description}" "${newBinding.from}" is already defined for hyper key "${this.config.description}" with "${existing.description}"`,
+                `Cannot bind "${newBinding.description}" "${newBinding.key}" is already defined for hyper key "${this.config.description}" with "${existing.description}"`,
             );
         }
 
@@ -358,12 +365,12 @@ export class HyperKey {
     getKeyBindingRules(): Rule[] {
         return this.bindings.map((bin) => {
             return {
-                description: `${this.id}: "${bin.from}" to ${bin.description}`,
+                description: `${this.id}: "${bin.key}" to ${bin.description}`,
                 manipulators: [
                     {
                         type: "basic",
                         from: {
-                            key_code: bin.from,
+                            key_code: bin.key,
                             modifiers: this.config.from.modifiers,
                         },
                         conditions: [this.virtualModifier.getCondition()],

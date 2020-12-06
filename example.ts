@@ -37,7 +37,7 @@ const hyper2 = new HyperKey({
 hyper1.bindKey({
     symbol: `"`,
     description: "double quote",
-    from: "k",
+    key: "k",
     to: {
         key_code: "2",
         modifiers: ["left_shift"],
@@ -47,7 +47,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "'",
     description: "single quote",
-    from: "j",
+    key: "j",
     to: {
         key_code: "non_us_pound",
     },
@@ -56,7 +56,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "|",
     description: "pipe",
-    from: "y",
+    key: "y",
     to: {
         key_code: "7",
         modifiers: ["left_option"],
@@ -66,7 +66,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: ";",
     description: "semicolon",
-    from: "n",
+    key: "n",
     to: {
         key_code: "comma",
         modifiers: ["left_shift"],
@@ -76,7 +76,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: ":",
     description: "colon",
-    from: "m",
+    key: "m",
     to: {
         key_code: "period",
         modifiers: ["left_shift"],
@@ -86,7 +86,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "`",
     description: "backtick",
-    from: "h",
+    key: "h",
     to: [
         {
             key_code: "equal_sign",
@@ -101,7 +101,7 @@ hyper1.bindKey({
 hyper2.bindKey({
     symbol: "=",
     description: "equals",
-    from: "b",
+    key: "b",
     to: {
         key_code: "0",
         modifiers: ["left_shift"],
@@ -111,7 +111,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: `\\`,
     description: "back slash",
-    from: "t",
+    key: "t",
     to: {
         key_code: "7",
         modifiers: ["left_option", "left_shift"],
@@ -121,7 +121,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "/",
     description: "forward slash",
-    from: "g",
+    key: "g",
     to: {
         key_code: "7",
         modifiers: ["left_shift"],
@@ -131,7 +131,7 @@ hyper2.bindKey({
 hyper1.bindKey({
     symbol: "?",
     description: "question mark",
-    from: "i",
+    key: "i",
     to: {
         key_code: "hyphen",
         modifiers: ["right_shift"],
@@ -141,7 +141,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "$",
     description: "pound",
-    from: "u",
+    key: "u",
     to: {
         key_code: "4",
         modifiers: ["right_option"],
@@ -150,7 +150,7 @@ hyper1.bindKey({
 
 hyper1.bindKey({
     description: "4 spaces",
-    from: "spacebar",
+    key: "spacebar",
     to: [
         {
             key_code: "spacebar",
@@ -169,7 +169,7 @@ hyper1.bindKey({
 
 hyper1.bindKey({
     description: "4 backspaces",
-    from: "delete_or_backspace",
+    key: "delete_or_backspace",
     to: [
         {
             key_code: "delete_or_backspace",
@@ -189,7 +189,7 @@ hyper1.bindKey({
 hyper2.bindKey({
     symbol: "⏮",
     description: "backspace",
-    from: "n",
+    key: "n",
     to: {
         key_code: "delete_or_backspace",
     },
@@ -198,7 +198,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⏭",
     description: "delete key",
-    from: "m",
+    key: "m",
     to: {
         key_code: "delete_forward",
     },
@@ -207,7 +207,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "{",
     description: "Open curly bracket",
-    from: "d",
+    key: "d",
     to: {
         key_code: "8",
         modifiers: ["left_shift", "left_alt"],
@@ -217,7 +217,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "}",
     description: "Close curly bracket",
-    from: "f",
+    key: "f",
     to: {
         key_code: "9",
         modifiers: ["left_shift", "left_alt"],
@@ -227,7 +227,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "[",
     description: "open square bracket",
-    from: "3",
+    key: "3",
     to: {
         key_code: "8",
         modifiers: ["right_option"],
@@ -237,7 +237,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "]",
     description: "close square bracket",
-    from: "4",
+    key: "4",
     to: {
         key_code: "9",
         modifiers: ["right_option"],
@@ -247,7 +247,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "(",
     description: "open paren",
-    from: "e",
+    key: "e",
     to: {
         key_code: "8",
         modifiers: ["left_shift"],
@@ -257,7 +257,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: ")",
     description: "close paren",
-    from: "r",
+    key: "r",
     to: {
         key_code: "9",
         modifiers: ["left_shift"],
@@ -267,7 +267,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "<",
     description: "open angle bracket",
-    from: "c",
+    key: "c",
     to: {
         key_code: "grave_accent_and_tilde",
     },
@@ -276,7 +276,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: ">",
     description: "close angle bracket",
-    from: "v",
+    key: "v",
     to: {
         key_code: "grave_accent_and_tilde",
         modifiers: ["left_shift"],
@@ -286,7 +286,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⬅️",
     description: "left arrow",
-    from: "h",
+    key: "h",
     to: {
         key_code: "left_arrow",
     },
@@ -295,7 +295,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⬇️",
     description: "down arrow",
-    from: "j",
+    key: "j",
     to: {
         key_code: "down_arrow",
     },
@@ -304,7 +304,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⬆️",
     description: "up arrow",
-    from: "k",
+    key: "k",
     to: {
         key_code: "up_arrow",
     },
@@ -313,7 +313,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "➡️",
     description: "right arrow",
-    from: "l",
+    key: "l",
     to: {
         key_code: "right_arrow",
     },
@@ -322,7 +322,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⇠",
     description: "to start of line",
-    from: "semicolon",
+    key: "semicolon",
     to: {
         key_code: "left_arrow",
         modifiers: ["left_gui"],
@@ -332,7 +332,7 @@ hyper2.bindKey({
 hyper2.bindKey({
     symbol: "⇢",
     description: "to end of the line",
-    from: "quote",
+    key: "quote",
     to: {
         key_code: "right_arrow",
         modifiers: ["left_gui"],
@@ -356,7 +356,7 @@ const SpectaclKeys: Key[] = [
 SpectaclKeys.forEach((key) => {
     hyper1.bindKey({
         description: "Spectacle " + key,
-        from: key,
+        key: key,
         to: {
             key_code: key,
             modifiers: ["left_control", "left_option", "left_command"],
