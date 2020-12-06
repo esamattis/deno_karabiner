@@ -232,7 +232,7 @@ export class HyperKey {
 
     getHyperKeyRule(): Rule {
         return {
-            description: "HYPER: " + this.name,
+            description: `${this.id}: "${this.name}"`,
             manipulators: [
                 {
                     type: "basic",
@@ -254,7 +254,7 @@ export class HyperKey {
     getKeyBindingRules(): Rule[] {
         return this.bindings.map((bin) => {
             return {
-                description: `HYPER: "${this.name}" + "${bin.from}" to "${bin.description}"`,
+                description: `${this.id}: "${bin.from}" to ${bin.description}`,
                 manipulators: [
                     {
                         type: "basic",
