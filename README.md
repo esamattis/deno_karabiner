@@ -70,7 +70,7 @@ mods.writeToProfile("Default profile", "test.json");
 ## Hyper Key Helper
 
 The lib comes with a helper class for creating Hyper Keys and subsequent
-bindings for it
+bindings for them (aka layers).
 
 ```tsx
 import { HyperKey } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
