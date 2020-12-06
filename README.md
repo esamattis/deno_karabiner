@@ -23,7 +23,7 @@ fiddle with npm and TypeScript configs.
 Create `generate.ts`:
 
 ```tsx
-import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
+import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.1.2/karabiner.ts";
 
 const mods = new KarabinerComplexModifications();
 
@@ -148,7 +148,7 @@ For example here's a layer I use
 Generate a mapping image like above automatically!
 
 ```tsx
-import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.121/svg.ts";
+import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.2/svg.ts";
 
 writeHyperKeyImage({
     hyperKeys: [hyper1, hyper2],
