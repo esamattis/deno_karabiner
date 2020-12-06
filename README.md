@@ -6,7 +6,7 @@ and [Deno](https://deno.land/).
 
 ## Why?
 
-Karabiner Complex Modifications are in JSON and which is not too text editor
+Karabiner Complex Modifications are in JSON which is not too text editor
 friendly format. By moving to TypeScript we gain following:
 
 -   Ability write comments
