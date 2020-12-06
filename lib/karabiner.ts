@@ -153,11 +153,11 @@ export class KarabinerComplexModifications {
     title = "Deno Karabiner";
     id = "deno";
 
-    constructor(options: { title?: string; id?: string }) {
-        if (options.title) {
+    constructor(options?: { title?: string; id?: string }) {
+        if (options?.title) {
             this.title = options.title;
         }
-        if (options.id) {
+        if (options?.id) {
             this.id = options.id;
         }
     }
