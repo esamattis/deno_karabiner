@@ -38,7 +38,7 @@
             ]
           },
           {
-            "description": "HYPER: Caps Lock",
+            "description": "hyper1: \"Caps Lock\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -68,7 +68,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"k\" to \"double quote\"",
+            "description": "hyper1: \"k\" to double quote",
             "manipulators": [
               {
                 "type": "basic",
@@ -94,7 +94,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"j\" to \"single quote\"",
+            "description": "hyper1: \"j\" to single quote",
             "manipulators": [
               {
                 "type": "basic",
@@ -117,7 +117,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"y\" to \"pipe\"",
+            "description": "hyper1: \"y\" to pipe",
             "manipulators": [
               {
                 "type": "basic",
@@ -143,7 +143,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"n\" to \"semicolon\"",
+            "description": "hyper1: \"n\" to semicolon",
             "manipulators": [
               {
                 "type": "basic",
@@ -169,7 +169,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"m\" to \"colon\"",
+            "description": "hyper1: \"m\" to colon",
             "manipulators": [
               {
                 "type": "basic",
@@ -195,7 +195,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"h\" to \"backtick\"",
+            "description": "hyper1: \"h\" to backtick",
             "manipulators": [
               {
                 "type": "basic",
@@ -224,7 +224,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"i\" to \"question mark\"",
+            "description": "hyper1: \"i\" to question mark",
             "manipulators": [
               {
                 "type": "basic",
@@ -250,7 +250,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"u\" to \"pound\"",
+            "description": "hyper1: \"u\" to pound",
             "manipulators": [
               {
                 "type": "basic",
@@ -276,7 +276,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"spacebar\" to \"4 spaces\"",
+            "description": "hyper1: \"spacebar\" to 4 spaces",
             "manipulators": [
               {
                 "type": "basic",
@@ -308,7 +308,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"delete_or_backspace\" to \"4 backspaces\"",
+            "description": "hyper1: \"delete_or_backspace\" to 4 backspaces",
             "manipulators": [
               {
                 "type": "basic",
@@ -340,7 +340,7 @@
             ]
           },
           {
-            "description": "HYPER: Alt Gr / Right Command",
+            "description": "hyper2: \"Alt Gr / Right Command\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -365,7 +365,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"b\" to \"equals\"",
+            "description": "hyper2: \"b\" to equals",
             "manipulators": [
               {
                 "type": "basic",
@@ -391,7 +391,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"t\" to \"back slash\"",
+            "description": "hyper2: \"t\" to back slash",
             "manipulators": [
               {
                 "type": "basic",
@@ -418,7 +418,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"g\" to \"forward slash\"",
+            "description": "hyper2: \"g\" to forward slash",
             "manipulators": [
               {
                 "type": "basic",
@@ -444,7 +444,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"n\" to \"backspace\"",
+            "description": "hyper2: \"n\" to backspace",
             "manipulators": [
               {
                 "type": "basic",
@@ -467,7 +467,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"m\" to \"delete key\"",
+            "description": "hyper2: \"m\" to delete key",
             "manipulators": [
               {
                 "type": "basic",
@@ -490,7 +490,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"d\" to \"open curly bracket\"",
+            "description": "hyper2: \"d\" to Open curly bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -517,7 +517,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"f\" to \"close curly bracket\"",
+            "description": "hyper2: \"f\" to Close curly bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -544,7 +544,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"3\" to \"open square bracket\"",
+            "description": "hyper2: \"3\" to open square bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -570,7 +570,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"4\" to \"close square bracket\"",
+            "description": "hyper2: \"4\" to close square bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -596,7 +596,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"e\" to \"open paren\"",
+            "description": "hyper2: \"e\" to open paren",
             "manipulators": [
               {
                 "type": "basic",
@@ -622,7 +622,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"r\" to \"close paren\"",
+            "description": "hyper2: \"r\" to close paren",
             "manipulators": [
               {
                 "type": "basic",
@@ -648,7 +648,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"c\" to \"open angle bracket\"",
+            "description": "hyper2: \"c\" to open angle bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -671,7 +671,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"v\" to \"close angle bracket\"",
+            "description": "hyper2: \"v\" to close angle bracket",
             "manipulators": [
               {
                 "type": "basic",
@@ -697,7 +697,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"h\" to \"left arrow\"",
+            "description": "hyper2: \"h\" to left arrow",
             "manipulators": [
               {
                 "type": "basic",
@@ -720,7 +720,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"j\" to \"down arrow\"",
+            "description": "hyper2: \"j\" to down arrow",
             "manipulators": [
               {
                 "type": "basic",
@@ -743,7 +743,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"k\" to \"up arrow\"",
+            "description": "hyper2: \"k\" to up arrow",
             "manipulators": [
               {
                 "type": "basic",
@@ -766,7 +766,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"l\" to \"right arrow\"",
+            "description": "hyper2: \"l\" to right arrow",
             "manipulators": [
               {
                 "type": "basic",
@@ -789,7 +789,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"semicolon\" to \"to start of line\"",
+            "description": "hyper2: \"semicolon\" to to start of line",
             "manipulators": [
               {
                 "type": "basic",
@@ -815,7 +815,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"quote\" to \"to end of the line\"",
+            "description": "hyper2: \"quote\" to to end of the line",
             "manipulators": [
               {
                 "type": "basic",

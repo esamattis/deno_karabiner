@@ -134,6 +134,11 @@ hyper1.bindKey({
 });
 ```
 
+The name, id and the descriptions are used to create readable descriptions to
+the Karabiner preferences view
+
+![image](https://user-images.githubusercontent.com/225712/101291575-8e209980-3812-11eb-93cc-02ad07e4ee01.png)
+
 For example here's a layer I use
 
 ![image](https://user-images.githubusercontent.com/225712/101291309-79430680-3810-11eb-9c57-935b8cc324d0.png)
