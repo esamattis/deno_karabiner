@@ -1,5 +1,9 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
-import { HyperKey, KarabinerComplexModifications } from "./lib/karabiner.ts";
+import {
+    HyperKey,
+    KarabinerComplexModifications,
+    Key,
+} from "./lib/karabiner.ts";
 // import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
 // import {
 //     HyperKey,
@@ -338,12 +342,38 @@ hyper2.bindKey({
     },
 });
 
+const SpectaclKeys: Key[] = [
+    "1",
+    "2",
+    "q",
+    "w",
+    "e",
+    "a",
+    "s",
+    "d",
+    "z",
+    "x",
+    "c",
+];
+
+SpectaclKeys.forEach((key) => {
+    hyper1.bindKey({
+        description: "Spectacle " + key,
+        from: key,
+        to: {
+            key_code: key,
+            modifiers: ["left_control", "left_option", "left_command"],
+        },
+    });
+});
+
 const mods = new KarabinerComplexModifications();
 
 mods.addRule({
     description: "backtick fix",
     manipulators: [
         {
+            type: "basic",
             from: {
                 key_code: "equal_sign",
             },
@@ -356,7 +386,6 @@ mods.addRule({
                     key_code: "spacebar",
                 },
             ],
-            type: "basic",
         },
     ],
 });
