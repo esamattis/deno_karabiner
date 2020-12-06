@@ -15,6 +15,9 @@ friendly. By moving to TypeScript we gain following:
 -   Type safety. The key codes etc. are typed
     -   Although this is not 100% complete. PRs welcome!
 
+Why Deno? It's the simplest way to run TypeScript script on macOS. No need
+fiddle with npm and typescript configs.
+
 ## Usage
 
 Create `generate.ts`:
