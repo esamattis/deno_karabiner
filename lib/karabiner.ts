@@ -91,7 +91,7 @@ export interface KeyPressTo {
 export interface Manipulator {
     type: "basic";
     from: KeyPressFrom;
-    to: KeyPressTo[];
+    to?: KeyPressTo[];
     to_if_alone?: KeyPressTo[];
 }
 
