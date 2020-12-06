@@ -433,6 +433,23 @@ mods.addRule({
     ],
 });
 
+// mods.addRule({
+//     description: "Map Caps Lock to Escape",
+//     manipulators: [
+//         {
+//             type: "basic",
+//             from: {
+//                 key_code: "caps_lock",
+//             },
+//             to: [
+//                 {
+//                     key_code: "escape",
+//                 },
+//             ],
+//         },
+//     ],
+// });
+
 if (Deno.env.get("GH_PAGES")) {
     writeHyperKeyImage({
         hyperKeys: [hyper1, hyper2],
