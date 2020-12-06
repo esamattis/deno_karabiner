@@ -1,0 +1,5 @@
+{
+    "deno.enable": true,
+    "editor.autoClosingQuotes": "never",
+    "editor.autoClosingBrackets": "never"
+}
