@@ -1,26 +1,4 @@
-import { HyperKey, KarabinerProfile } from "./lib.ts";
-
-const karabiner = new KarabinerProfile("Default profile");
-karabiner.addRule({
-    description: "backtick fix",
-    manipulators: [
-        {
-            from: {
-                key_code: "equal_sign",
-            },
-            to: [
-                {
-                    key_code: "equal_sign",
-                    modifiers: ["left_shift"],
-                },
-                {
-                    key_code: "spacebar",
-                },
-            ],
-            type: "basic",
-        },
-    ],
-});
+import { HyperKey, KarabinerComplexRules } from "./lib.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
     from: {
@@ -52,9 +30,6 @@ const hyper2 = new HyperKey("Alt Gr / Right Command", {
         modifiers: ["right_command", "right_option"],
     },
 });
-
-karabiner.addHyperKey(hyper1);
-karabiner.addHyperKey(hyper2);
 
 hyper1.bindKey({
     description: "double quote",
@@ -187,6 +162,25 @@ hyper1.bindKey({
     ],
 });
 
+hyper1.bindKey({
+    description: "4 backspaces",
+    from: "delete_or_backspace",
+    to: [
+        {
+            key_code: "delete_or_backspace",
+        },
+        {
+            key_code: "delete_or_backspace",
+        },
+        {
+            key_code: "delete_or_backspace",
+        },
+        {
+            key_code: "delete_or_backspace",
+        },
+    ],
+});
+
 hyper2.bindKey({
     description: "backspace",
     from: "n",
@@ -234,7 +228,7 @@ hyper2.bindKey({
     description: "close square bracket",
     from: "4",
     to: {
-        key_code: "8",
+        key_code: "9",
         modifiers: ["right_option"],
     },
 });
@@ -324,4 +318,93 @@ hyper2.bindKey({
     },
 });
 
-karabiner.writeComplexRules();
+const complexRules = new KarabinerComplexRules();
+
+complexRules.addRule({
+    description: "backtick fix",
+    manipulators: [
+        {
+            from: {
+                key_code: "equal_sign",
+            },
+            to: [
+                {
+                    key_code: "equal_sign",
+                    modifiers: ["left_shift"],
+                },
+                {
+                    key_code: "spacebar",
+                },
+            ],
+            type: "basic",
+        },
+    ],
+});
+
+complexRules.addRule(hyper1.getRules());
+complexRules.addRule(hyper2.getRules());
+
+complexRules.addRule({
+    description:
+        "HYPER2: Fix enter, space, backspace, delete when hyper2 is active",
+    manipulators: [
+        {
+            from: {
+                key_code: "return_or_enter",
+                modifiers: {
+                    mandatory: hyper2.getModifiers(),
+                },
+            },
+            to: [
+                {
+                    key_code: "return_or_enter",
+                },
+            ],
+            type: "basic",
+        },
+        {
+            from: {
+                key_code: "spacebar",
+                modifiers: {
+                    mandatory: hyper2.getModifiers(),
+                },
+            },
+            to: [
+                {
+                    key_code: "spacebar",
+                },
+            ],
+            type: "basic",
+        },
+        {
+            from: {
+                key_code: "delete_or_backspace",
+                modifiers: {
+                    mandatory: hyper2.getModifiers(),
+                },
+            },
+            to: [
+                {
+                    key_code: "delete_or_backspace",
+                },
+            ],
+            type: "basic",
+        },
+        {
+            from: {
+                key_code: "delete_forward",
+                modifiers: {
+                    mandatory: hyper2.getModifiers(),
+                },
+            },
+            to: [
+                {
+                    key_code: "delete_forward",
+                },
+            ],
+            type: "basic",
+        },
+    ],
+});
+
+complexRules.writeToProfile("Default profile");

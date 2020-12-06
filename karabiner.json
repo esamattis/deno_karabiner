@@ -68,7 +68,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'double quote'",
+            "description": "HYPER: \"Caps Lock\" + \"k\" to \"double quote\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -94,7 +94,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'single quote'",
+            "description": "HYPER: \"Caps Lock\" + \"j\" to \"single quote\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -117,7 +117,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'pipe'",
+            "description": "HYPER: \"Caps Lock\" + \"y\" to \"pipe\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -143,7 +143,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'semicolon'",
+            "description": "HYPER: \"Caps Lock\" + \"n\" to \"semicolon\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -169,7 +169,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'colon'",
+            "description": "HYPER: \"Caps Lock\" + \"m\" to \"colon\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -195,7 +195,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'backtick'",
+            "description": "HYPER: \"Caps Lock\" + \"h\" to \"backtick\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -224,7 +224,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'plus'",
+            "description": "HYPER: \"Caps Lock\" + \"l\" to \"plus\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -250,7 +250,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'question mark'",
+            "description": "HYPER: \"Caps Lock\" + \"i\" to \"question mark\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -276,7 +276,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to 'pound $'",
+            "description": "HYPER: \"Caps Lock\" + \"u\" to \"pound $\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -302,7 +302,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Caps Lock' to '4 spaces'",
+            "description": "HYPER: \"Caps Lock\" + \"spacebar\" to \"4 spaces\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -334,6 +334,38 @@
             ]
           },
           {
+            "description": "HYPER: \"Caps Lock\" + \"delete_or_backspace\" to \"4 backspaces\"",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  },
+                  {
+                    "key_code": "delete_or_backspace"
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "HYPER: Alt Gr / Right Command",
             "manipulators": [
               {
@@ -359,7 +391,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'equals'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"t\" to \"equals\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -385,7 +417,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'back slash'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"b\" to \"back slash\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -412,7 +444,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'forward slash'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"g\" to \"forward slash\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -438,7 +470,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'backspace'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"n\" to \"backspace\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -461,7 +493,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'delete key'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"m\" to \"delete key\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -484,7 +516,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'open curly bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"d\" to \"open curly bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -511,7 +543,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'close curly bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"f\" to \"close curly bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -538,7 +570,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'open square bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"3\" to \"open square bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -564,7 +596,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'close square bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"4\" to \"close square bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -580,7 +612,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "8",
+                    "key_code": "9",
                     "modifiers": [
                       "right_option"
                     ]
@@ -590,7 +622,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'open paren'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"c\" to \"open paren\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -616,7 +648,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'close paren'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"v\" to \"close paren\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -642,7 +674,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'open angle bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"e\" to \"open angle bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -665,7 +697,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'close angle bracket'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"r\" to \"close angle bracket\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -691,7 +723,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'left arrow'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"h\" to \"left arrow\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -714,7 +746,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'down arrow'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"j\" to \"down arrow\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -737,7 +769,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'up arrow'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"k\" to \"up arrow\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -760,7 +792,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'right arrow'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"l\" to \"right arrow\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -783,7 +815,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'to start of line'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"semicolon\" to \"to start of line\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -809,7 +841,7 @@
             ]
           },
           {
-            "description": "HYPER: 'Alt Gr / Right Command' to 'to end of the line'",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"quote\" to \"to end of the line\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -831,6 +863,83 @@
                     ]
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER2: Fix enter, space, backspace, delete when hyper2 is active",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "return_or_enter",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "spacebar"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "delete_or_backspace",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_or_backspace"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "delete_forward",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "delete_forward"
+                  }
+                ],
+                "type": "basic"
               }
             ]
           }

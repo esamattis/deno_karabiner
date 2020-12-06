@@ -115,20 +115,15 @@ export interface KarabinerConfig {
     }[];
 }
 
-export class KarabinerProfile {
-    rules = [] as (Rule | HyperKey)[];
-    profileName: string;
+export class KarabinerComplexRules {
+    rules = [] as Rule[];
 
-    constructor(profile: string) {
-        this.profileName = profile;
-    }
-
-    addRule(rule: Rule) {
-        this.rules.push(rule);
-    }
-
-    addHyperKey(key: HyperKey) {
-        this.rules.push(key);
+    addRule(rule: Rule | Rule[]) {
+        if (Array.isArray(rule)) {
+            this.rules.push(...rule);
+        } else {
+            this.rules.push(rule);
+        }
     }
 
     getRules(): Rule[] {
@@ -146,7 +141,7 @@ export class KarabinerProfile {
         return rules;
     }
 
-    async writeComplexRules() {
+    async writeToProfile(profileName: string) {
         const homeDir = Deno.env.get("HOME");
         const confPath = homeDir + "/.config/karabiner/karabiner.json";
 
@@ -155,7 +150,7 @@ export class KarabinerProfile {
         const config: KarabinerConfig | undefined = JSON.parse(content);
 
         const profile = config?.profiles?.find((profile) => {
-            return profile.name === this.profileName;
+            return profile.name === profileName;
         });
 
         const availableProfiles = config?.profiles
@@ -166,7 +161,7 @@ export class KarabinerProfile {
 
         if (!profile) {
             throw new Error(
-                `Could not find Karabiner profile profile "${this.profileName}". Available profiles: ${availableProfiles}`,
+                `Could not find Karabiner profile profile "${profileName}". Available profiles: ${availableProfiles}`,
             );
         }
 
@@ -225,20 +220,24 @@ export class HyperKey {
         };
     }
 
+    getModifiers(): Key[] {
+        return [
+            this.manipulator.to.key_code,
+            ...(this.manipulator.to.modifiers ?? []),
+        ];
+    }
+
     getKeyBindingRules(): Rule[] {
         return this.bindings.map((bin) => {
             return {
-                description: `HYPER: '${this.name}' to '${bin.description}'`,
+                description: `HYPER: "${this.name}" + "${bin.from}" to "${bin.description}"`,
                 manipulators: [
                     {
                         type: "basic",
                         from: {
                             key_code: bin.from,
                             modifiers: {
-                                mandatory: [
-                                    this.manipulator.to.key_code,
-                                    ...(this.manipulator.to.modifiers ?? []),
-                                ],
+                                mandatory: this.getModifiers(),
                             },
                         },
                         to: [bin.to].flat(),
@@ -246,5 +245,9 @@ export class HyperKey {
                 ],
             };
         });
+    }
+
+    getRules() {
+        return [this.getHyperKeyRule(), ...this.getKeyBindingRules()];
     }
 }
