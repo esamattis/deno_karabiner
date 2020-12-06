@@ -16,7 +16,7 @@ friendly. By moving to TypeScript we gain following:
     -   Although this is not 100% complete. PRs welcome!
 
 Why Deno? It's the simplest way to run TypeScript script on macOS. No need
-fiddle with npm and typescript configs.
+fiddle with npm and TypeScript configs.
 
 ## Usage
 
