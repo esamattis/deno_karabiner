@@ -86,6 +86,10 @@ export interface KeyPressTo {
     shell_command?: string;
     modifiers?: Key[];
     lazy?: boolean;
+    set_variable?: {
+        name: string;
+        value: number | string;
+    };
 }
 
 /**
@@ -112,7 +116,19 @@ export interface DeviceCondition {
     }[];
 }
 
-export type Condition = FrontmostApplicationCondition | DeviceCondition;
+/**
+ * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/conditions/variable/
+ */
+export interface VariableCondition {
+    type: "variable_if" | "variable_unless";
+    name: string;
+    value: number | string;
+}
+
+export type Condition =
+    | FrontmostApplicationCondition
+    | DeviceCondition
+    | VariableCondition;
 
 /**
  * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/
