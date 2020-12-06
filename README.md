@@ -6,11 +6,11 @@ Elements](https://karabiner-elements.pqrs.org/) using Typescript and
 
 ## Why?
 
-Karabiner Complex Modification are JSON and which is not too editor friendly.
-By moving to TypeScript we gain following:
+Karabiner Complex Modifications are in JSON and which is not too text editor
+friendly format. By moving to TypeScript we gain following:
 
 -   Ability write comments
--   Ability variables and any logic we want
+-   Ability to use variables and any logic we want
 -   Autocomplete via VSCode etc.
 -   Type safety. The key codes etc. are typed
     -   Although this is not 100% complete. PRs welcome!
