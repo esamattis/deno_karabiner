@@ -428,10 +428,17 @@ complexRules.addRule({
     ],
 });
 
-complexRules.writeToProfile("Default profile");
-
-writeHyperKeyImage({
-    hyperKeys: [hyper1, hyper2],
-    inputSVGPath: "./images/layout.svg",
-    ouputHTMLPath: "./layout.html",
-});
+if (Deno.env.get("GH_PAGES")) {
+    writeHyperKeyImage({
+        hyperKeys: [hyper1, hyper2],
+        inputSVGPath: "./images/layout.svg",
+        ouputHTMLPath: "./build/layout.html",
+    });
+} else {
+    complexRules.writeToProfile("Default profile");
+    writeHyperKeyImage({
+        hyperKeys: [hyper1, hyper2],
+        inputSVGPath: "./images/layout.svg",
+        ouputHTMLPath: "./layout.html",
+    });
+}

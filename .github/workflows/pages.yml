@@ -1,0 +1,31 @@
+name: Build pages
+on:
+    push:
+        branches:
+            - master
+jobs:
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout 🛎️
+              uses: actions/checkout@v2
+              with:
+                  persist-credentials: false
+
+            - uses: denolib/setup-deno@v2
+              with:
+                  deno-version: v1.x
+
+            - name: Build image html
+              run: |
+                  export GH_PAGES=1
+                  mkdir build
+                  exec deno run --allow-env --allow-read --allow-write example.ts
+
+            - name: Deploy 🚀
+              uses: JamesIves/github-pages-deploy-action@3.7.1
+              with:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  BRANCH: gh-pages
+                  FOLDER: build
+                  CLEAN: true
