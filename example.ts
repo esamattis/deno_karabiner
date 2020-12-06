@@ -14,11 +14,6 @@ const hyper1 = new HyperKey("Caps Lock", {
             optional: ["any"],
         },
     },
-    to: {
-        key_code: "right_control",
-        modifiers: ["right_command", "right_option"],
-        lazy: true,
-    },
     to_if_alone: [
         {
             key_code: "escape",
@@ -33,11 +28,6 @@ const hyper2 = new HyperKey("Alt Gr / Right Command", {
         modifiers: {
             optional: ["any"],
         },
-    },
-    to: {
-        key_code: "right_shift",
-        modifiers: ["right_command", "right_option"],
-        lazy: true,
     },
 });
 
@@ -371,69 +361,6 @@ mods.addRule({
 
 mods.addRule(hyper1.getRules());
 mods.addRule(hyper2.getRules());
-
-mods.addRule({
-    description:
-        "HYPER2: Fix enter, space, backspace, delete when hyper2 is active",
-    manipulators: [
-        {
-            from: {
-                key_code: "return_or_enter",
-                modifiers: {
-                    mandatory: hyper2.getModifiers(),
-                },
-            },
-            to: [
-                {
-                    key_code: "return_or_enter",
-                },
-            ],
-            type: "basic",
-        },
-        {
-            from: {
-                key_code: "spacebar",
-                modifiers: {
-                    mandatory: hyper2.getModifiers(),
-                },
-            },
-            to: [
-                {
-                    key_code: "spacebar",
-                },
-            ],
-            type: "basic",
-        },
-        {
-            from: {
-                key_code: "delete_or_backspace",
-                modifiers: {
-                    mandatory: hyper2.getModifiers(),
-                },
-            },
-            to: [
-                {
-                    key_code: "delete_or_backspace",
-                },
-            ],
-            type: "basic",
-        },
-        {
-            from: {
-                key_code: "delete_forward",
-                modifiers: {
-                    mandatory: hyper2.getModifiers(),
-                },
-            },
-            to: [
-                {
-                    key_code: "delete_forward",
-                },
-            ],
-            type: "basic",
-        },
-    ],
-});
 
 // mods.addRule({
 //     description: "Map Caps Lock to Escape",

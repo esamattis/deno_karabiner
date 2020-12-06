@@ -138,13 +138,13 @@ export interface Manipulator {
     from: KeyPressFrom;
     to?: KeyPressTo[];
     to_if_alone?: KeyPressTo[];
+    to_after_key_up?: KeyPressTo[];
     conditions?: Condition[];
 }
 
-export interface HyperManipulator {
+export interface HyperKeyConfig {
     id: string;
     from: KeyPressFrom;
-    to: KeyPressTo;
     to_if_alone?: KeyPressTo[];
 }
 
@@ -271,13 +271,13 @@ export interface HyperKeyBinding {
 export class HyperKey {
     name: string;
     id: string;
-    manipulator: HyperManipulator;
+    config: HyperKeyConfig;
     bindings: HyperKeyBinding[];
 
-    constructor(name: string, manipulator: HyperManipulator) {
+    constructor(name: string, manipulator: HyperKeyConfig) {
         this.id = manipulator.id;
         this.name = name;
-        this.manipulator = manipulator;
+        this.config = manipulator;
         this.bindings = [];
     }
 
@@ -305,26 +305,27 @@ export class HyperKey {
             manipulators: [
                 {
                     type: "basic",
-                    from: this.manipulator.from,
-                    to: [this.manipulator.to],
-                    to_if_alone: this.manipulator.to_if_alone,
+                    from: this.config.from,
+                    to: [
+                        {
+                            set_variable: {
+                                name: this.id,
+                                value: 1,
+                            },
+                        },
+                    ],
+                    to_after_key_up: [
+                        {
+                            set_variable: {
+                                name: this.id,
+                                value: 0,
+                            },
+                        },
+                    ],
+                    to_if_alone: this.config.to_if_alone,
                 },
             ],
         };
-    }
-
-    getModifiers(): Key[] {
-        const keys: Key[] = [];
-
-        if (this.manipulator.to.key_code) {
-            keys.push(this.manipulator.to.key_code);
-        }
-
-        if (this.manipulator.to.modifiers) {
-            keys.push(...this.manipulator.to.modifiers);
-        }
-
-        return keys;
     }
 
     getKeyBindingRules(): Rule[] {
@@ -336,10 +337,14 @@ export class HyperKey {
                         type: "basic",
                         from: {
                             key_code: bin.from,
-                            modifiers: {
-                                mandatory: this.getModifiers(),
-                            },
                         },
+                        conditions: [
+                            {
+                                type: "variable_if",
+                                name: this.id,
+                                value: 1,
+                            },
+                        ],
                         to: [bin.to].flat(),
                     },
                 ],
