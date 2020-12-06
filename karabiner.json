@@ -224,32 +224,6 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"l\" to \"plus\"",
-            "manipulators": [
-              {
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "hyphen",
-                    "modifiers": [
-                      "left_shift"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          {
             "description": "HYPER: \"Caps Lock\" + \"i\" to \"question mark\"",
             "manipulators": [
               {
@@ -276,7 +250,7 @@
             ]
           },
           {
-            "description": "HYPER: \"Caps Lock\" + \"u\" to \"pound $\"",
+            "description": "HYPER: \"Caps Lock\" + \"u\" to \"pound\"",
             "manipulators": [
               {
                 "type": "basic",
@@ -391,12 +365,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"t\" to \"equals\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"b\" to \"equals\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "t",
+                  "key_code": "b",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",
@@ -407,7 +381,7 @@
                 },
                 "to": [
                   {
-                    "key_code": "period",
+                    "key_code": "0",
                     "modifiers": [
                       "left_shift"
                     ]
@@ -417,12 +391,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"b\" to \"back slash\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"t\" to \"back slash\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "b",
+                  "key_code": "t",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",
@@ -622,12 +596,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"c\" to \"open paren\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"e\" to \"open paren\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "c",
+                  "key_code": "e",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",
@@ -648,12 +622,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"v\" to \"close paren\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"r\" to \"close paren\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "v",
+                  "key_code": "r",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",
@@ -674,12 +648,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"e\" to \"open angle bracket\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"c\" to \"open angle bracket\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "e",
+                  "key_code": "c",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",
@@ -697,12 +671,12 @@
             ]
           },
           {
-            "description": "HYPER: \"Alt Gr / Right Command\" + \"r\" to \"close angle bracket\"",
+            "description": "HYPER: \"Alt Gr / Right Command\" + \"v\" to \"close angle bracket\"",
             "manipulators": [
               {
                 "type": "basic",
                 "from": {
-                  "key_code": "r",
+                  "key_code": "v",
                   "modifiers": {
                     "mandatory": [
                       "right_shift",

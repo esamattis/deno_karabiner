@@ -94,6 +94,7 @@ export interface Manipulator {
 }
 
 export interface HyperManipulator {
+    id: string;
     from: KeyPressFrom;
     to: KeyPressTo;
     to_if_alone?: KeyPressTo[];
@@ -141,6 +142,10 @@ export class KarabinerComplexRules {
         return rules;
     }
 
+    print() {
+        console.log(JSON.stringify(this.getRules(), null, "    "));
+    }
+
     async writeToProfile(profileName: string) {
         const homeDir = Deno.env.get("HOME");
         const confPath = homeDir + "/.config/karabiner/karabiner.json";
@@ -176,17 +181,26 @@ export class KarabinerComplexRules {
 }
 
 export interface HyperKeyBinding {
+    /**
+     * Description for Karabiner
+     */
     description: string;
+    /**
+     * Symbol for the image generator
+     */
+    symbol?: string;
     from: Key;
     to: KeyPressTo | KeyPressTo[];
 }
 
 export class HyperKey {
     name: string;
+    id: string;
     manipulator: HyperManipulator;
     bindings: HyperKeyBinding[];
 
     constructor(name: string, manipulator: HyperManipulator) {
+        this.id = manipulator.id;
         this.name = name;
         this.manipulator = manipulator;
         this.bindings = [];
@@ -204,6 +218,10 @@ export class HyperKey {
         }
 
         this.bindings.push(newBinding);
+    }
+
+    getBindings() {
+        return this.bindings;
     }
 
     getHyperKeyRule(): Rule {

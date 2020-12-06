@@ -1,6 +1,8 @@
+import { writeHyperKeyImage } from "./image.ts";
 import { HyperKey, KarabinerComplexRules } from "./lib.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
+    id: "hyper1",
     from: {
         key_code: "caps_lock",
         modifiers: {
@@ -19,6 +21,7 @@ const hyper1 = new HyperKey("Caps Lock", {
 });
 
 const hyper2 = new HyperKey("Alt Gr / Right Command", {
+    id: "hyper2",
     from: {
         key_code: "right_command",
         modifiers: {
@@ -32,6 +35,7 @@ const hyper2 = new HyperKey("Alt Gr / Right Command", {
 });
 
 hyper1.bindKey({
+    symbol: `"`,
     description: "double quote",
     from: "k",
     to: {
@@ -41,6 +45,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: "'",
     description: "single quote",
     from: "j",
     to: {
@@ -49,6 +54,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: "|",
     description: "pipe",
     from: "y",
     to: {
@@ -58,6 +64,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: ";",
     description: "semicolon",
     from: "n",
     to: {
@@ -67,6 +74,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: ":",
     description: "colon",
     from: "m",
     to: {
@@ -76,6 +84,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: "`",
     description: "backtick",
     from: "h",
     to: [
@@ -90,26 +99,19 @@ hyper1.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "=",
     description: "equals",
-    from: "t",
+    from: "b",
     to: {
-        key_code: "period",
-        modifiers: ["left_shift"],
-    },
-});
-
-hyper1.bindKey({
-    description: "plus",
-    from: "l",
-    to: {
-        key_code: "hyphen",
+        key_code: "0",
         modifiers: ["left_shift"],
     },
 });
 
 hyper2.bindKey({
+    symbol: `\\`,
     description: "back slash",
-    from: "b",
+    from: "t",
     to: {
         key_code: "7",
         modifiers: ["left_option", "left_shift"],
@@ -117,6 +119,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "/",
     description: "forward slash",
     from: "g",
     to: {
@@ -126,6 +129,7 @@ hyper2.bindKey({
 });
 
 hyper1.bindKey({
+    symbol: "?",
     description: "question mark",
     from: "i",
     to: {
@@ -135,7 +139,8 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
-    description: "pound $",
+    symbol: "$",
+    description: "pound",
     from: "u",
     to: {
         key_code: "4",
@@ -182,6 +187,7 @@ hyper1.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⏮",
     description: "backspace",
     from: "n",
     to: {
@@ -190,6 +196,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⏭",
     description: "delete key",
     from: "m",
     to: {
@@ -198,6 +205,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "{",
     description: "open curly bracket",
     from: "d",
     to: {
@@ -207,6 +215,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "}",
     description: "close curly bracket",
     from: "f",
     to: {
@@ -216,6 +225,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "[",
     description: "open square bracket",
     from: "3",
     to: {
@@ -225,6 +235,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "]",
     description: "close square bracket",
     from: "4",
     to: {
@@ -234,8 +245,9 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "(",
     description: "open paren",
-    from: "c",
+    from: "e",
     to: {
         key_code: "8",
         modifiers: ["left_shift"],
@@ -243,8 +255,9 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: ")",
     description: "close paren",
-    from: "v",
+    from: "r",
     to: {
         key_code: "9",
         modifiers: ["left_shift"],
@@ -252,16 +265,18 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "<",
     description: "open angle bracket",
-    from: "e",
+    from: "c",
     to: {
         key_code: "grave_accent_and_tilde",
     },
 });
 
 hyper2.bindKey({
+    symbol: ">",
     description: "close angle bracket",
-    from: "r",
+    from: "v",
     to: {
         key_code: "grave_accent_and_tilde",
         modifiers: ["left_shift"],
@@ -269,6 +284,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⬅️",
     description: "left arrow",
     from: "h",
     to: {
@@ -277,6 +293,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⬇️",
     description: "down arrow",
     from: "j",
     to: {
@@ -285,6 +302,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⬆️",
     description: "up arrow",
     from: "k",
     to: {
@@ -293,6 +311,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "➡️",
     description: "right arrow",
     from: "l",
     to: {
@@ -301,6 +320,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⇠",
     description: "to start of line",
     from: "semicolon",
     to: {
@@ -310,6 +330,7 @@ hyper2.bindKey({
 });
 
 hyper2.bindKey({
+    symbol: "⇢",
     description: "to end of the line",
     from: "quote",
     to: {
@@ -408,3 +429,4 @@ complexRules.addRule({
 });
 
 complexRules.writeToProfile("Default profile");
+writeHyperKeyImage(hyper1, hyper2);
