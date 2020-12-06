@@ -1,4 +1,4 @@
-import { HyperKey } from "./lib.ts";
+import { HyperKey } from "./karabiner.ts";
 
 interface BindingData {
     bindings: {
@@ -8,6 +8,9 @@ interface BindingData {
     }[];
 }
 
+/**
+ * Just get help from vscode and prettier
+ */
 export function html(strings: TemplateStringsArray, ...expr: string[]) {
     let str = "";
     strings.forEach((string, i) => {
@@ -65,13 +68,11 @@ function htmlTemplate(ctx: { svg: string; script: string; data: BindingData }) {
 export async function writeHyperKeyImage(options: {
     hyperKeys: HyperKey[];
     inputSVGPath: string;
-    outpuSVGPath: string;
+    ouputHTMLPath: string;
 }) {
-    const svg = await Deno.readTextFile(
-        "/Users/esamatti/Desktop/karabiner_export.svg",
-    );
+    const svg = await Deno.readTextFile(options.inputSVGPath);
 
-    const bindings = hyperKeys.flatMap((hyper) => {
+    const bindings = options.hyperKeys.flatMap((hyper) => {
         return hyper.getBindings().map((binding) => {
             return {
                 hyperKeyId: hyper.id,
@@ -82,7 +83,7 @@ export async function writeHyperKeyImage(options: {
     });
 
     await Deno.writeTextFile(
-        "/Users/esamatti/Desktop/karabiner_out.html",
+        options.ouputHTMLPath,
         htmlTemplate({
             svg,
             script: clientCode.toString(),

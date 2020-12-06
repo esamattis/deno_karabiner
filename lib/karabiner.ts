@@ -146,11 +146,13 @@ export class KarabinerComplexRules {
         console.log(JSON.stringify(this.getRules(), null, "    "));
     }
 
-    async writeToProfile(profileName: string) {
-        const homeDir = Deno.env.get("HOME");
-        const confPath = homeDir + "/.config/karabiner/karabiner.json";
+    async writeToProfile(profileName: string, configPath?: string) {
+        if (!configPath) {
+            const homeDir = Deno.env.get("HOME");
+            configPath = homeDir + "/.config/karabiner/karabiner.json";
+        }
 
-        const content = await Deno.readTextFile(confPath);
+        const content = await Deno.readTextFile(configPath);
 
         const config: KarabinerConfig | undefined = JSON.parse(content);
 
@@ -158,11 +160,12 @@ export class KarabinerComplexRules {
             return profile.name === profileName;
         });
 
-        const availableProfiles = config?.profiles
-            ?.map((profile) => {
-                return `"${profile.name}"`;
-            })
-            .join(", ");
+        const availableProfiles =
+            config?.profiles
+                ?.map((profile) => {
+                    return `"${profile.name}"`;
+                })
+                .join(", ") ?? "No profiles available";
 
         if (!profile) {
             throw new Error(
@@ -176,7 +179,10 @@ export class KarabinerComplexRules {
 
         profile.complex_modifications.rules = this.getRules();
 
-        await Deno.writeTextFile(confPath, JSON.stringify(config, null, "  "));
+        await Deno.writeTextFile(
+            configPath,
+            JSON.stringify(config, null, "  "),
+        );
     }
 }
 

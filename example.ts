@@ -1,5 +1,5 @@
-import { writeHyperKeyImage } from "./image.ts";
-import { HyperKey, KarabinerComplexRules } from "./lib.ts";
+import { writeHyperKeyImage } from "./lib/svg.ts";
+import { HyperKey, KarabinerComplexRules } from "./lib/karabiner.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
     id: "hyper1",
@@ -429,4 +429,9 @@ complexRules.addRule({
 });
 
 complexRules.writeToProfile("Default profile");
-writeHyperKeyImage(hyper1, hyper2);
+
+writeHyperKeyImage({
+    hyperKeys: [hyper1, hyper2],
+    inputSVGPath: "./images/layout.svg",
+    ouputHTMLPath: "./layout.html",
+});
