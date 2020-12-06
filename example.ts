@@ -370,22 +370,37 @@ SpectaclKeys.forEach((key) => {
 const mods = new KarabinerComplexModifications();
 
 mods.addRule({
-    description: "backtick fix",
+    description: "Disable confusing backtic button",
     manipulators: [
         {
             type: "basic",
             from: {
                 key_code: "equal_sign",
             },
-            to: [
-                {
-                    key_code: "equal_sign",
-                    modifiers: ["left_shift"],
-                },
-                {
-                    key_code: "spacebar",
-                },
-            ],
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Disable quote button (too close to enter)",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "non_us_pound",
+            },
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Disable insert",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "insert",
+            },
         },
     ],
 });
