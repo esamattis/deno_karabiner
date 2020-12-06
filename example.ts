@@ -1,5 +1,10 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
 import { HyperKey, KarabinerComplexModifications } from "./lib/karabiner.ts";
+// import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
+// import {
+//     HyperKey,
+//     KarabinerComplexModifications,
+// } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
     id: "hyper1",
