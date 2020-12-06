@@ -73,7 +73,7 @@ The lib comes with a helper class for creating Hyper Keys and subsequent
 bindings for them (aka layers).
 
 ```tsx
-import { HyperKey } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
+import { HyperKey } from "https://deno.land/x/karabiner@v0.1.2/karabiner.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
     id: "hyper1",
@@ -148,7 +148,7 @@ For example here's a layer I use
 Generate a mapping image like above automatically!
 
 ```tsx
-import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
+import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.121/svg.ts";
 
 writeHyperKeyImage({
     hyperKeys: [hyper1, hyper2],
