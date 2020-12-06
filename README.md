@@ -23,7 +23,7 @@ fiddle with npm and TypeScript configs.
 Create `generate.ts`:
 
 ```tsx
-import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.1.2/karabiner.ts";
+import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.2.0/karabiner.ts";
 
 const mods = new KarabinerComplexModifications();
 
@@ -74,7 +74,7 @@ The lib comes with a helper class for creating Hyper Keys and subsequent
 bindings for them (aka layers).
 
 ```tsx
-import { HyperKey } from "https://deno.land/x/karabiner@v0.1.2/karabiner.ts";
+import { HyperKey } from "https://deno.land/x/karabiner@v0.2.0/karabiner.ts";
 
 const hyper1 = new HyperKey({
     id: "hyper1",
@@ -138,7 +138,7 @@ For example here's a layer I use
 Generate a mapping image like above automatically!
 
 ```tsx
-import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.2/svg.ts";
+import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.2.0/svg.ts";
 
 writeHyperKeyImage({
     hyperKeys: [hyper1, hyper2],
