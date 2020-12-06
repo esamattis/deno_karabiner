@@ -211,7 +211,7 @@ hyper2.bindKey({
 
 hyper2.bindKey({
     symbol: "{",
-    description: "open curly bracket",
+    description: "Open curly bracket",
     from: "d",
     to: {
         key_code: "8",
@@ -221,7 +221,7 @@ hyper2.bindKey({
 
 hyper2.bindKey({
     symbol: "}",
-    description: "close curly bracket",
+    description: "Close curly bracket",
     from: "f",
     to: {
         key_code: "9",

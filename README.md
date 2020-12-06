@@ -104,8 +104,10 @@ pressed alone it will emit `escape`.
 Hyper Keys can be used the create whole new "Layers" with `.bindKey()`.
 
 For example in the finnish mac keyboard layout the curly brackets are really
-painful to type since it needs three keys: `shift + option + 8` which are in
-(imo) awkward positions.
+painful (imo 😉) to type since it needs three keys: `shift + option + 8`
+which are in awkward positions.
+
+So here's how to type them with `Caps Lock + d` and `Caps Lock + f`:
 
 ```tsx
 hyper1.bindKey({
@@ -123,8 +125,7 @@ hyper1.bindKey({
 });
 
 hyper1.bindKey({
-    symbol: "}",
-    description: "close curly bracket",
+    description: "Close curly bracket",
     from: "f",
     to: {
         key_code: "9",
