@@ -116,7 +116,7 @@ export interface KarabinerConfig {
     }[];
 }
 
-export class KarabinerComplexRules {
+export class KarabinerComplexModifications {
     rules = [] as Rule[];
 
     addRule(rule: Rule | Rule[]) {

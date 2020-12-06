@@ -1,5 +1,5 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
-import { HyperKey, KarabinerComplexRules } from "./lib/karabiner.ts";
+import { HyperKey, KarabinerComplexModifications } from "./lib/karabiner.ts";
 
 const hyper1 = new HyperKey("Caps Lock", {
     id: "hyper1",
@@ -339,9 +339,9 @@ hyper2.bindKey({
     },
 });
 
-const complexRules = new KarabinerComplexRules();
+const mods = new KarabinerComplexModifications();
 
-complexRules.addRule({
+mods.addRule({
     description: "backtick fix",
     manipulators: [
         {
@@ -362,10 +362,10 @@ complexRules.addRule({
     ],
 });
 
-complexRules.addRule(hyper1.getRules());
-complexRules.addRule(hyper2.getRules());
+mods.addRule(hyper1.getRules());
+mods.addRule(hyper2.getRules());
 
-complexRules.addRule({
+mods.addRule({
     description:
         "HYPER2: Fix enter, space, backspace, delete when hyper2 is active",
     manipulators: [
@@ -435,7 +435,7 @@ if (Deno.env.get("GH_PAGES")) {
         ouputHTMLPath: "./build/index.html",
     });
 } else {
-    complexRules.writeToProfile("Default profile");
+    mods.writeToProfile("Default profile");
     writeHyperKeyImage({
         hyperKeys: [hyper1, hyper2],
         inputSVGPath: "./images/layout.svg",
