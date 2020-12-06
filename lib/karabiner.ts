@@ -269,14 +269,56 @@ export interface HyperKeyBinding {
     to: KeyPressTo | KeyPressTo[];
 }
 
+/**
+ * https://karabiner-elements.pqrs.org/docs/json/extra/virtual-modifier/
+ */
+export class VirtualModifier {
+    id: string;
+
+    constructor(id: string) {
+        this.id = id;
+    }
+
+    getManipulator() {
+        return {
+            to: [
+                {
+                    set_variable: {
+                        name: this.id,
+                        value: 1,
+                    },
+                },
+            ],
+            to_after_key_up: [
+                {
+                    set_variable: {
+                        name: this.id,
+                        value: 0,
+                    },
+                },
+            ],
+        };
+    }
+
+    getCondition(): VariableCondition {
+        return {
+            type: "variable_if",
+            name: this.id,
+            value: 1,
+        };
+    }
+}
+
 export class HyperKey {
     config: HyperKeyConfig;
     bindings: HyperKeyBinding[];
+    virtualModifier: VirtualModifier;
     id: string;
 
     constructor(config: HyperKeyConfig) {
         this.config = config;
         this.id = config.id;
+        this.virtualModifier = new VirtualModifier(this.id);
         this.bindings = [];
     }
 
@@ -303,24 +345,9 @@ export class HyperKey {
             description: `${this.config.id}: "${this.config.description}"`,
             manipulators: [
                 {
+                    ...this.virtualModifier.getManipulator(),
                     type: "basic",
                     from: this.config.from,
-                    to: [
-                        {
-                            set_variable: {
-                                name: this.id,
-                                value: 1,
-                            },
-                        },
-                    ],
-                    to_after_key_up: [
-                        {
-                            set_variable: {
-                                name: this.id,
-                                value: 0,
-                            },
-                        },
-                    ],
                     to_if_alone: this.config.to_if_alone,
                 },
             ],
@@ -337,13 +364,7 @@ export class HyperKey {
                         from: {
                             key_code: bin.from,
                         },
-                        conditions: [
-                            {
-                                type: "variable_if",
-                                name: this.id,
-                                value: 1,
-                            },
-                        ],
+                        conditions: [this.virtualModifier.getCondition()],
                         to: [bin.to].flat(),
                     },
                 ],
