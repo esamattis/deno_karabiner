@@ -88,6 +88,9 @@ export interface KeyPressTo {
     lazy?: boolean;
 }
 
+/**
+ * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/
+ */
 export interface Manipulator {
     type: "basic";
     from: KeyPressFrom;
@@ -120,6 +123,17 @@ export interface KarabinerConfig {
 
 export class KarabinerComplexModifications {
     rules = [] as Rule[];
+    title = "Deno Karabiner";
+    id = "deno";
+
+    constructor(options: { title?: string; id?: string }) {
+        if (options.title) {
+            this.title = options.title;
+        }
+        if (options.id) {
+            this.id = options.id;
+        }
+    }
 
     addRule(rule: Rule | Rule[]) {
         if (Array.isArray(rule)) {
@@ -144,8 +158,18 @@ export class KarabinerComplexModifications {
         return rules;
     }
 
+    /**
+     * In the format of
+     * https://karabiner-elements.pqrs.org/docs/json/root-data-structure/#custom-json-file-in-configkarabinerassetscomplex_modifications
+     */
     print() {
-        console.log(JSON.stringify(this.getRules(), null, "    "));
+        console.log(
+            JSON.stringify(
+                { title: this.title, rules: this.getRules() },
+                null,
+                "    ",
+            ),
+        );
     }
 
     async writeToProfile(profileName: string, configPath?: string) {
