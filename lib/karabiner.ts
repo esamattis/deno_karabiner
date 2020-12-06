@@ -36,6 +36,7 @@ export type Key =
     | "comma"
     | "equal_sign"
     | "hyphen"
+    | "insert"
     | "1"
     | "2"
     | "3"
