@@ -140,7 +140,7 @@ For example here's a layer I use
 
 ## Bonus!
 
-Generate the mapping image like above automatically!
+Generate a mapping image like above automatically!
 
 ```tsx
 import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
