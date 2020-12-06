@@ -132,3 +132,24 @@ hyper1.bindKey({
     },
 });
 ```
+
+For example Here's layer config I use
+
+![image](https://user-images.githubusercontent.com/225712/101291309-79430680-3810-11eb-9c57-935b8cc324d0.png)
+
+### Bonus
+
+Generate mapping image automatically!
+
+```tsx
+import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
+
+writeHyperKeyImage({
+    hyperKeys: [hyper1, hyper2],
+    inputSVGPath: "./images/layout.svg",
+    ouputHTMLPath: "./layout.html",
+});
+```
+
+The `layout.svg` can be found from [images/layout.svg](images/layout.svg) and
+just open the generated `layout.html` in a browser.
