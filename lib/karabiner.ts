@@ -89,6 +89,32 @@ export interface KeyPressTo {
 }
 
 /**
+ * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/conditions/frontmost-application/
+ */
+export interface FrontmostApplicationCondition {
+    type: "frontmost_application_if" | "frontmost_application_unless";
+    description?: string;
+    bundle_identifiers?: string[];
+    file_paths?: string[];
+}
+
+/**
+ * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/conditions/device/
+ */
+export interface DeviceCondition {
+    type: "device_if" | "device_unless";
+    identifiers: {
+        vendor_id?: number;
+        product_id?: number;
+        location_id?: boolean;
+        is_keyboard?: boolean;
+        is_pointing_device?: boolean;
+    }[];
+}
+
+export type Condition = FrontmostApplicationCondition | DeviceCondition;
+
+/**
  * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/
  */
 export interface Manipulator {
@@ -96,6 +122,7 @@ export interface Manipulator {
     from: KeyPressFrom;
     to?: KeyPressTo[];
     to_if_alone?: KeyPressTo[];
+    conditions?: Condition[];
 }
 
 export interface HyperManipulator {
