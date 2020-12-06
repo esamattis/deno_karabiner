@@ -4,10 +4,9 @@ Write Complex Modifications for [Karabiner
 Elements](https://karabiner-elements.pqrs.org/) using Typescript and
 [Deno](https://deno.land/) and enjoy the autocomplete and type safety!
 
-Example:
+Example `generate.ts`:
 
 ```tsx
-// generate.ts
 import { KarabinerComplexModifications } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
 
 const mods = new KarabinerComplexModifications();
