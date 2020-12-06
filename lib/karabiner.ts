@@ -78,7 +78,7 @@ export interface KeyPressFrom {
     key_code: Key;
     modifiers?: {
         mandatory?: Key[];
-        optional?: any;
+        optional?: Key[];
     };
 }
 
@@ -364,6 +364,7 @@ export class HyperKey {
                         type: "basic",
                         from: {
                             key_code: bin.from,
+                            modifiers: this.config.from.modifiers,
                         },
                         conditions: [this.virtualModifier.getCondition()],
                         to: [bin.to].flat(),

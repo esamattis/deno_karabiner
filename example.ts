@@ -15,9 +15,6 @@ const hyper1 = new HyperKey({
     description: "Caps Lock",
     from: {
         key_code: "caps_lock",
-        modifiers: {
-            optional: ["any"],
-        },
     },
     to_if_alone: [
         {
@@ -32,7 +29,7 @@ const hyper2 = new HyperKey({
     from: {
         key_code: "right_command",
         modifiers: {
-            optional: ["any"],
+            optional: ["left_shift"],
         },
     },
 });
