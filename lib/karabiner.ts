@@ -82,7 +82,8 @@ export interface KeyPressFrom {
 }
 
 export interface KeyPressTo {
-    key_code: Key;
+    key_code?: Key;
+    shell_command?: string;
     modifiers?: Key[];
 }
 
@@ -245,10 +246,17 @@ export class HyperKey {
     }
 
     getModifiers(): Key[] {
-        return [
-            this.manipulator.to.key_code,
-            ...(this.manipulator.to.modifiers ?? []),
-        ];
+        const keys: Key[] = [];
+
+        if (this.manipulator.to.key_code) {
+            keys.push(this.manipulator.to.key_code);
+        }
+
+        if (this.manipulator.to.modifiers) {
+            keys.push(...this.manipulator.to.modifiers);
+        }
+
+        return keys;
     }
 
     getKeyBindingRules(): Rule[] {
