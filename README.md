@@ -1,7 +1,7 @@
 # Deno Karabiner
 
 Write Complex Modifications for
-[Karabiner-Elements](https://karabiner-elements.pqrs.org/) using Typescript
+[Karabiner-Elements](https://karabiner-elements.pqrs.org/) using TypeScript
 and [Deno](https://deno.land/).
 
 ## Why?
@@ -15,7 +15,7 @@ friendly format. By moving to TypeScript we gain following:
 -   Type safety. The key codes etc. are typed
     -   Although this is not 100% complete. PRs welcome!
 
-Why Deno? It's the simplest way to run TypeScript scripts on macOS. No need
+Why Deno? It's the simplest way to run TypeScript code on macOS. No need to
 fiddle with npm and TypeScript configs.
 
 ## Usage
