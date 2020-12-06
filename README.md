@@ -93,6 +93,9 @@ const hyper1 = new HyperKey("Caps Lock", {
         },
     ],
 });
+
+// Add the hyper key rules to mods instance
+mods.addRule(hyper1.getRules());
 ```
 
 This would make the Caps Lock a Hyper Key which emits `right_control`,
