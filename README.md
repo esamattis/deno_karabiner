@@ -99,7 +99,7 @@ This would make the Caps Lock a Hyper Key which emits `right_control`,
 `right_command` and `right_option` when combined with some other key but when
 pressed alone it will emit `escape`.
 
-### Layers
+## Layers
 
 Hyper Keys can be used the create whole new "Layers" with `.bindKey()`.
 
@@ -137,9 +137,9 @@ For example Here's layer config I use
 
 ![image](https://user-images.githubusercontent.com/225712/101291309-79430680-3810-11eb-9c57-935b8cc324d0.png)
 
-### Bonus
+## Bonus!
 
-Generate mapping image automatically!
+Generate the mapping image like above automatically!
 
 ```tsx
 import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
@@ -153,3 +153,6 @@ writeHyperKeyImage({
 
 The `layout.svg` can be found from [images/layout.svg](images/layout.svg) and
 just open the generated `layout.html` in a browser.
+
+The base svg image is quite opinionated. It supports two hyper keys with ids
+`hyper1` and `hyper2`.
