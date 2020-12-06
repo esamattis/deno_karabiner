@@ -23,6 +23,7 @@ export type Key =
     | "grave_accent_and_tilde"
     | "non_us_pound"
     | "delete_or_backspace"
+    | "delete_forward"
     | "non_us_backslash"
     | "application"
     | "semicolon"
@@ -102,56 +103,80 @@ export interface Rule {
     description: string;
     manipulators: Manipulator[];
 }
-//   {
-//     description: "HYPER: semi colon",
-//     manipulators: [
-//       {
-//         from: {
-//           key_code: "n",
-//           modifiers: {
-//             mandatory: [
-//               "right_control",
-//               "right_command",
-//               "right_option",
-//             ],
-//           },
-//         },
-//         to: [
-//           {
-//             key_code: "comma",
-//             modifiers: ["left_shift"],
-//           },
-//         ],
-//         type: "basic",
-//       },
-//     ],
-//   },
 
-export class Rules {
-    hyperKeys = [] as HyperKey[];
-    rawRules = [] as Rule[];
+export interface KarabinerConfig {
+    global?: any;
+    profiles?: {
+        name?: string;
+        complex_modifications?: {
+            parameters?: any;
+            rules?: Rule[];
+        };
+    }[];
+}
+
+export class KarabinerProfile {
+    rules = [] as (Rule | HyperKey)[];
+    profileName: string;
+
+    constructor(profile: string) {
+        this.profileName = profile;
+    }
 
     addRule(rule: Rule) {
-        this.rawRules.push(rule);
+        this.rules.push(rule);
     }
 
     addHyperKey(key: HyperKey) {
-        this.hyperKeys.push(key);
+        this.rules.push(key);
     }
 
     getRules(): Rule[] {
         const rules: Rule[] = [];
-        rules.push(...this.rawRules);
 
-        for (const key of this.hyperKeys) {
-            rules.push(key.getRule());
-        }
-
-        for (const key of this.hyperKeys) {
-            rules.push(...key.getKeyBindingRules());
+        for (const rule of this.rules) {
+            if (rule instanceof HyperKey) {
+                rules.push(rule.getHyperKeyRule());
+                rules.push(...rule.getKeyBindingRules());
+            } else {
+                rules.push(rule);
+            }
         }
 
         return rules;
+    }
+
+    async writeComplexRules() {
+        const homeDir = Deno.env.get("HOME");
+        const confPath = homeDir + "/.config/karabiner/karabiner.json";
+
+        const content = await Deno.readTextFile(confPath);
+
+        const config: KarabinerConfig | undefined = JSON.parse(content);
+
+        const profile = config?.profiles?.find((profile) => {
+            return profile.name === this.profileName;
+        });
+
+        const availableProfiles = config?.profiles
+            ?.map((profile) => {
+                return `"${profile.name}"`;
+            })
+            .join(", ");
+
+        if (!profile) {
+            throw new Error(
+                `Could not find Karabiner profile profile "${this.profileName}". Available profiles: ${availableProfiles}`,
+            );
+        }
+
+        if (!profile.complex_modifications) {
+            profile.complex_modifications = {};
+        }
+
+        profile.complex_modifications.rules = this.getRules();
+
+        await Deno.writeTextFile(confPath, JSON.stringify(config, null, "  "));
     }
 }
 
@@ -186,7 +211,7 @@ export class HyperKey {
         this.bindings.push(newBinding);
     }
 
-    getRule(): Rule {
+    getHyperKeyRule(): Rule {
         return {
             description: "HYPER: " + this.name,
             manipulators: [
@@ -194,6 +219,7 @@ export class HyperKey {
                     type: "basic",
                     from: this.manipulator.from,
                     to: [this.manipulator.to],
+                    to_if_alone: this.manipulator.to_if_alone,
                 },
             ],
         };

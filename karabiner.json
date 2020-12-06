@@ -16,36 +16,6 @@
         },
         "rules": [
           {
-            "description": "HYPER1 caps loc",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": [
-                      "any"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_control",
-                    "modifiers": [
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                ],
-                "to_if_alone": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
             "description": "backtick fix",
             "manipulators": [
               {
@@ -68,110 +38,40 @@
             ]
           },
           {
-            "description": "HYPER: pipe",
+            "description": "HYPER: Caps Lock",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
-                  "key_code": "y",
+                  "key_code": "caps_lock",
                   "modifiers": {
-                    "mandatory": [
-                      "right_control",
-                      "right_command",
-                      "right_option"
+                    "optional": [
+                      "any"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "7",
+                    "key_code": "right_control",
                     "modifiers": [
-                      "left_option"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER: Single quote",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control",
                       "right_command",
                       "right_option"
                     ]
                   }
-                },
-                "to": [
-                  {
-                    "key_code": "non_us_pound"
-                  }
                 ],
-                "type": "basic"
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: semi colon",
+            "description": "HYPER: 'Caps Lock' to 'double quote'",
             "manipulators": [
               {
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma",
-                    "modifiers": [
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER: colon",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_control",
-                      "right_command",
-                      "right_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "period",
-                    "modifiers": [
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER: double quote",
-            "manipulators": [
-              {
+                "type": "basic",
                 "from": {
                   "key_code": "k",
                   "modifiers": {
@@ -189,15 +89,116 @@
                       "left_shift"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: backtic",
+            "description": "HYPER: 'Caps Lock' to 'single quote'",
             "manipulators": [
               {
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "non_us_pound"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Caps Lock' to 'pipe'",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "left_option"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Caps Lock' to 'semicolon'",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "comma",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Caps Lock' to 'colon'",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_control",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "period",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Caps Lock' to 'backtick'",
+            "manipulators": [
+              {
+                "type": "basic",
                 "from": {
                   "key_code": "h",
                   "modifiers": {
@@ -218,39 +219,15 @@
                   {
                     "key_code": "spacebar"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: equals",
+            "description": "HYPER: 'Caps Lock' to 'plus'",
             "manipulators": [
               {
-                "from": {
-                  "key_code": "t",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "0",
-                    "modifiers": [
-                      "right_shift"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER: plus",
-            "manipulators": [
-              {
+                "type": "basic",
                 "from": {
                   "key_code": "l",
                   "modifiers": {
@@ -263,66 +240,20 @@
                 },
                 "to": [
                   {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER2: backslash",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "b",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "7",
-                    "modifiers": [
-                      "left_option",
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER2: forward slash",
-            "manipulators": [
-              {
-                "from": {
-                  "key_code": "g",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "7",
+                    "key_code": "hyphen",
                     "modifiers": [
                       "left_shift"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: question mark",
+            "description": "HYPER: 'Caps Lock' to 'question mark'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "i",
                   "modifiers": {
@@ -340,15 +271,15 @@
                       "right_shift"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: pound",
+            "description": "HYPER: 'Caps Lock' to 'pound $'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "u",
                   "modifiers": {
@@ -366,15 +297,15 @@
                       "right_option"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: 4 spaces",
+            "description": "HYPER: 'Caps Lock' to '4 spaces'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "spacebar",
                   "modifiers": {
@@ -398,20 +329,45 @@
                   {
                     "key_code": "spacebar"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER: 2 spaces",
+            "description": "HYPER: Alt Gr / Right Command",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
-                  "key_code": "right_shift",
+                  "key_code": "right_command",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_shift",
+                    "modifiers": [
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'equals'",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
                   "modifiers": {
                     "mandatory": [
-                      "right_control",
+                      "right_shift",
                       "right_command",
                       "right_option"
                     ]
@@ -419,25 +375,80 @@
                 },
                 "to": [
                   {
-                    "key_code": "spacebar"
-                  },
-                  {
-                    "key_code": "spacebar"
+                    "key_code": "period",
+                    "modifiers": [
+                      "left_shift"
+                    ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: delete",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'back slash'",
             "manipulators": [
               {
+                "type": "basic",
+                "from": {
+                  "key_code": "b",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "left_option",
+                      "left_shift"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'forward slash'",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_shift",
+                      "right_command",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "7",
+                    "modifiers": [
+                      "left_shift"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'backspace'",
+            "manipulators": [
+              {
+                "type": "basic",
                 "from": {
                   "key_code": "n",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -445,15 +456,22 @@
                   {
                     "key_code": "delete_or_backspace"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'delete key'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "m",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -461,73 +479,22 @@
                   {
                     "key_code": "delete_forward"
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: enter, backspace fix, spacebar",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'open curly bracket'",
             "manipulators": [
               {
-                "from": {
-                  "key_code": "return_or_enter",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "return_or_enter"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "right_command",
-                  "modifiers": {
-                    "mandatory": [
-                      "spacebar"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "spacebar"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "from": {
-                  "key_code": "delete_or_backspace",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              }
-            ]
-          },
-          {
-            "description": "HYPER2: curly brackets",
-            "manipulators": [
-              {
+                "type": "basic",
                 "from": {
                   "key_code": "d",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -539,15 +506,22 @@
                       "left_alt"
                     ]
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'close curly bracket'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "f",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -559,20 +533,22 @@
                       "left_alt"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: brackets[]",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'open square bracket'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "3",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -583,39 +559,48 @@
                       "right_option"
                     ]
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'close square bracket'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "4",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
                 "to": [
                   {
-                    "key_code": "9",
+                    "key_code": "8",
                     "modifiers": [
                       "right_option"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: parens()",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'open paren'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "c",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -626,15 +611,22 @@
                       "left_shift"
                     ]
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'close paren'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "v",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -645,20 +637,22 @@
                       "left_shift"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: Angle brackets",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'open angle bracket'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "e",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -666,15 +660,22 @@
                   {
                     "key_code": "grave_accent_and_tilde"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'close angle bracket'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "r",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -685,23 +686,22 @@
                       "left_shift"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           },
           {
-            "description": "HYPER2: hjkl to arrow keys",
+            "description": "HYPER: 'Alt Gr / Right Command' to 'left arrow'",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "h",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -709,18 +709,22 @@
                   {
                     "key_code": "left_arrow"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'down arrow'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "j",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -728,18 +732,22 @@
                   {
                     "key_code": "down_arrow"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'up arrow'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "k",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -747,18 +755,22 @@
                   {
                     "key_code": "up_arrow"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'right arrow'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "l",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -766,18 +778,22 @@
                   {
                     "key_code": "right_arrow"
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'to start of line'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "semicolon",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -788,18 +804,22 @@
                       "left_gui"
                     ]
                   }
-                ],
-                "type": "basic"
-              },
+                ]
+              }
+            ]
+          },
+          {
+            "description": "HYPER: 'Alt Gr / Right Command' to 'to end of the line'",
+            "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "quote",
                   "modifiers": {
                     "mandatory": [
-                      "right_command"
-                    ],
-                    "optional": [
-                      "any"
+                      "right_shift",
+                      "right_command",
+                      "right_option"
                     ]
                   }
                 },
@@ -810,8 +830,7 @@
                       "left_gui"
                     ]
                   }
-                ],
-                "type": "basic"
+                ]
               }
             ]
           }

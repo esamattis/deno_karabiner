@@ -1,8 +1,7 @@
-import { HyperKey, Rules } from "./lib.ts";
+import { HyperKey, KarabinerProfile } from "./lib.ts";
 
-const rules = new Rules();
-
-rules.addRule({
+const karabiner = new KarabinerProfile("Default profile");
+karabiner.addRule({
     description: "backtick fix",
     manipulators: [
         {
@@ -54,8 +53,8 @@ const hyper2 = new HyperKey("Alt Gr / Right Command", {
     },
 });
 
-rules.addHyperKey(hyper1);
-rules.addHyperKey(hyper2);
+karabiner.addHyperKey(hyper1);
+karabiner.addHyperKey(hyper2);
 
 hyper1.bindKey({
     description: "double quote",
@@ -189,11 +188,18 @@ hyper1.bindKey({
 });
 
 hyper2.bindKey({
-    description: "delete key",
+    description: "backspace",
     from: "n",
     to: {
-        key_code: "4",
-        modifiers: ["delete_or_backspace"],
+        key_code: "delete_or_backspace",
+    },
+});
+
+hyper2.bindKey({
+    description: "delete key",
+    from: "m",
+    to: {
+        key_code: "delete_forward",
     },
 });
 
@@ -318,52 +324,4 @@ hyper2.bindKey({
     },
 });
 
-rules.addRule({
-    description: "HYPER2: enter, backspace fix, spacebar",
-    manipulators: [
-        {
-            from: {
-                key_code: "return_or_enter",
-                modifiers: {
-                    mandatory: ["right_command"],
-                },
-            },
-            to: [
-                {
-                    key_code: "return_or_enter",
-                },
-            ],
-            type: "basic",
-        },
-        {
-            from: {
-                key_code: "right_command",
-                modifiers: {
-                    mandatory: ["spacebar"],
-                },
-            },
-            to: [
-                {
-                    key_code: "spacebar",
-                },
-            ],
-            type: "basic",
-        },
-        {
-            from: {
-                key_code: "delete_or_backspace",
-                modifiers: {
-                    mandatory: ["right_command"],
-                },
-            },
-            to: [
-                {
-                    key_code: "delete_or_backspace",
-                },
-            ],
-            type: "basic",
-        },
-    ],
-});
-
-console.log(JSON.stringify(rules.getRules(), null, "    "));
+karabiner.writeComplexRules();
