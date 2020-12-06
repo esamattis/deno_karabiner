@@ -432,7 +432,7 @@ if (Deno.env.get("GH_PAGES")) {
     writeHyperKeyImage({
         hyperKeys: [hyper1, hyper2],
         inputSVGPath: "./images/layout.svg",
-        ouputHTMLPath: "./build/layout.html",
+        ouputHTMLPath: "./build/index.html",
     });
 } else {
     complexRules.writeToProfile("Default profile");
