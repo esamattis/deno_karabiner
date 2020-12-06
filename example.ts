@@ -6,8 +6,9 @@ import { HyperKey, KarabinerComplexModifications } from "./lib/karabiner.ts";
 //     KarabinerComplexModifications,
 // } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
 
-const hyper1 = new HyperKey("Caps Lock", {
+const hyper1 = new HyperKey({
     id: "hyper1",
+    description: "Caps Lock",
     from: {
         key_code: "caps_lock",
         modifiers: {
@@ -21,8 +22,9 @@ const hyper1 = new HyperKey("Caps Lock", {
     ],
 });
 
-const hyper2 = new HyperKey("Alt Gr / Right Command", {
+const hyper2 = new HyperKey({
     id: "hyper2",
+    description: "Alt Gr / Right Command",
     from: {
         key_code: "right_command",
         modifiers: {

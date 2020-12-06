@@ -144,6 +144,7 @@ export interface Manipulator {
 
 export interface HyperKeyConfig {
     id: string;
+    description: string;
     from: KeyPressFrom;
     to_if_alone?: KeyPressTo[];
 }
@@ -269,15 +270,13 @@ export interface HyperKeyBinding {
 }
 
 export class HyperKey {
-    name: string;
-    id: string;
     config: HyperKeyConfig;
     bindings: HyperKeyBinding[];
+    id: string;
 
-    constructor(name: string, manipulator: HyperKeyConfig) {
-        this.id = manipulator.id;
-        this.name = name;
-        this.config = manipulator;
+    constructor(config: HyperKeyConfig) {
+        this.config = config;
+        this.id = config.id;
         this.bindings = [];
     }
 
@@ -288,7 +287,7 @@ export class HyperKey {
 
         if (existing) {
             throw new Error(
-                `Cannot bind "${newBinding.description}" "${newBinding.from}" is already defined for hyper key "${this.name}" with "${existing.description}"`,
+                `Cannot bind "${newBinding.description}" "${newBinding.from}" is already defined for hyper key "${this.config.description}" with "${existing.description}"`,
             );
         }
 
@@ -301,7 +300,7 @@ export class HyperKey {
 
     getHyperKeyRule(): Rule {
         return {
-            description: `${this.id}: "${this.name}"`,
+            description: `${this.config.id}: "${this.config.description}"`,
             manipulators: [
                 {
                     type: "basic",

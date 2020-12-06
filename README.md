@@ -76,34 +76,20 @@ bindings for them (aka layers).
 ```tsx
 import { HyperKey } from "https://deno.land/x/karabiner@v0.1.2/karabiner.ts";
 
-const hyper1 = new HyperKey("Caps Lock", {
+const hyper1 = new HyperKey({
     id: "hyper1",
+    description: "Caps Lock",
     from: {
         key_code: "caps_lock",
         modifiers: {
             optional: ["any"],
         },
     },
-    to: {
-        key_code: "right_control",
-        modifiers: ["right_command", "right_option"],
-    },
-    to_if_alone: [
-        {
-            key_code: "escape",
-        },
-    ],
 });
 
 // Add the hyper key rules to mods instance
 mods.addRule(hyper1.getRules());
 ```
-
-This would make the Caps Lock a Hyper Key which emits `right_control`,
-`right_command` and `right_option` when combined with some other key but when
-pressed alone it will emit `escape`.
-
-## Layers
 
 Hyper Keys can be used the create whole new "Layers" with `.bindKey()`.
 
