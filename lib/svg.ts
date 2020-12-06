@@ -51,6 +51,7 @@ function htmlTemplate(ctx: { svg: string; script: string; data: BindingData }) {
         <!DOCTYPE html>
         <html>
             <head>
+                <title>Karabiner: Hyper Key Bingings</title>
                 <style>
                     #svg,
                     h1 {
@@ -59,7 +60,7 @@ function htmlTemplate(ctx: { svg: string; script: string; data: BindingData }) {
                 </style>
             </head>
             <body>
-                <h1>Hyper Key Bindings</h1>
+                <h1>Karabiner: Hyper Key Bindings</h1>
                 <div id="svg" style="display: none">${ctx.svg}</div>
                 <script id="data" type="application/json">
                     ${JSON.stringify(ctx.data)}
