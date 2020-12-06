@@ -162,3 +162,5 @@ just open the generated `layout.html` in a browser.
 
 The base svg image is quite opinionated. It supports two hyper keys with ids
 `hyper1` and `hyper2`.
+
+You can find my mapping image here: <https://esamattis.github.io/karabiner/>
