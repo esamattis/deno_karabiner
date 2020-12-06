@@ -57,8 +57,8 @@ This will write the rules to the "Default Profile" in your Karabiner config
 in `~/.config/karabiner/karabiner.json`. It will not touch any other options.
 The changes will be in effect immediately if you have Karabiner running.
 
-If you want to try on a different file you can pass it as the second arg to
-`.writeToProfile()`.
+If you want to try it first on a different file you can pass it as the second
+arg to `.writeToProfile()`.
 
 ```tsx
 mods.writeToProfile("Default profile", "test.json");
