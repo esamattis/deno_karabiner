@@ -133,7 +133,7 @@ hyper1.bindKey({
 });
 ```
 
-For example Here's layer config I use
+For example here's a layer I use
 
 ![image](https://user-images.githubusercontent.com/225712/101291309-79430680-3810-11eb-9c57-935b8cc324d0.png)
 
