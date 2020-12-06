@@ -49,7 +49,7 @@ mods.writeToProfile("Default profile", "test.json");
 ```
 
 > `--allow-env` is required so it can find your Karabiner config file using
-> the HOME env which can be removed if you pass explicit file name here
+> the HOME env which can be removed if you pass an explicit file name here
 
 ## Hyper Key Helper
 
