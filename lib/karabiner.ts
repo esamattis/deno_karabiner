@@ -85,6 +85,7 @@ export interface KeyPressTo {
     key_code?: Key;
     shell_command?: string;
     modifiers?: Key[];
+    lazy?: boolean;
 }
 
 export interface Manipulator {

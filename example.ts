@@ -17,6 +17,7 @@ const hyper1 = new HyperKey("Caps Lock", {
     to: {
         key_code: "right_control",
         modifiers: ["right_command", "right_option"],
+        lazy: true,
     },
     to_if_alone: [
         {
@@ -36,6 +37,7 @@ const hyper2 = new HyperKey("Alt Gr / Right Command", {
     to: {
         key_code: "right_shift",
         modifiers: ["right_command", "right_option"],
+        lazy: true,
     },
 });
 
