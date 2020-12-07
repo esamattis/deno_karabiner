@@ -37,6 +37,7 @@ export type Key =
     | "equal_sign"
     | "hyphen"
     | "insert"
+    | "pause"
     | "home"
     | "1"
     | "2"
@@ -141,6 +142,7 @@ export interface Manipulator {
     to?: KeyPressTo[];
     to_if_alone?: KeyPressTo[];
     to_after_key_up?: KeyPressTo[];
+    to_if_held_down?: KeyPressTo[];
     conditions?: Condition[];
 }
 
