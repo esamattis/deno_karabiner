@@ -282,14 +282,18 @@ export interface HyperKeyBinding {
  */
 export class VirtualModifier {
     id: string;
+    from: KeyPressFrom;
 
-    constructor(id: string) {
+    constructor(id: string, from: KeyPressFrom) {
         this.id = id;
+        this.from = from;
     }
 
-    getManipulator(manipulator: Manipulator): Manipulator {
+    getManipulator(extensions: Partial<Manipulator>): Manipulator {
         return {
-            ...manipulator,
+            ...extensions,
+            type: "basic",
+            from: this.from,
             to: [
                 {
                     set_variable: {
@@ -297,7 +301,7 @@ export class VirtualModifier {
                         value: 1,
                     },
                 },
-                ...(manipulator.to ?? []),
+                ...(extensions.to ?? []),
             ],
             to_after_key_up: [
                 {
@@ -306,7 +310,7 @@ export class VirtualModifier {
                         value: 0,
                     },
                 },
-                ...(manipulator.to_after_key_up ?? []),
+                ...(extensions.to_after_key_up ?? []),
             ],
         };
     }
@@ -329,7 +333,7 @@ export class HyperKey {
     constructor(config: HyperKeyConfig) {
         this.config = config;
         this.id = config.id;
-        this.virtualModifier = new VirtualModifier(this.id);
+        this.virtualModifier = new VirtualModifier(this.id, config.from);
         this.bindings = [];
     }
 
@@ -356,8 +360,6 @@ export class HyperKey {
             description: `${this.config.id}: "${this.config.description}"`,
             manipulators: [
                 this.virtualModifier.getManipulator({
-                    type: "basic",
-                    from: this.config.from,
                     to_if_alone: this.config.to_if_alone,
                 }),
             ],
