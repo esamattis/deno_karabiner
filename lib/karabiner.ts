@@ -287,8 +287,9 @@ export class VirtualModifier {
         this.id = id;
     }
 
-    getManipulator() {
+    getManipulator(manipulator: Manipulator): Manipulator {
         return {
+            ...manipulator,
             to: [
                 {
                     set_variable: {
@@ -296,6 +297,7 @@ export class VirtualModifier {
                         value: 1,
                     },
                 },
+                ...(manipulator.to ?? []),
             ],
             to_after_key_up: [
                 {
@@ -304,6 +306,7 @@ export class VirtualModifier {
                         value: 0,
                     },
                 },
+                ...(manipulator.to_after_key_up ?? []),
             ],
         };
     }
@@ -352,12 +355,11 @@ export class HyperKey {
         return {
             description: `${this.config.id}: "${this.config.description}"`,
             manipulators: [
-                {
-                    ...this.virtualModifier.getManipulator(),
+                this.virtualModifier.getManipulator({
                     type: "basic",
                     from: this.config.from,
                     to_if_alone: this.config.to_if_alone,
-                },
+                }),
             ],
         };
     }
