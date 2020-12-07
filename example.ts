@@ -29,7 +29,7 @@ const hyper2 = new HyperKey({
     from: {
         key_code: "right_command",
         modifiers: {
-            optional: ["left_shift"],
+            optional: ["left_shift", "left_option"],
         },
     },
 });
