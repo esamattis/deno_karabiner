@@ -421,10 +421,12 @@ mods.addRule({
 
 const UNMUTE: KeyPressTo = {
     shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"' -e 'delay 0.25' -e 'set volume input volume 100'`,
+    // shell_command: `echo unmute >> ~/mute.log`,
 };
 
 const MUTE: KeyPressTo = {
     shell_command: `osascript -e 'set volume input volume 0' -e 'delay 0.25' -e 'display notification "🔇 muted" sound name "frog"'`,
+    // shell_command: `echo mute >> ~/mute.log`,
 };
 
 mods.addRule({
@@ -433,7 +435,7 @@ mods.addRule({
         {
             type: "basic",
             from: {
-                key_code: "grave_accent_and_tilde",
+                key_code: "non_us_backslash",
             },
             to_if_held_down: [UNMUTE],
             to_after_key_up: [MUTE],
