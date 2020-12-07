@@ -37,6 +37,7 @@ export type Key =
     | "equal_sign"
     | "hyphen"
     | "insert"
+    | "home"
     | "1"
     | "2"
     | "3"

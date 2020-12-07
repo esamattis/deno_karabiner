@@ -402,6 +402,53 @@ mods.addRule({
     ],
 });
 
+// type:consumer_key_do code:112        name:display_brightn misc:
+// type:consumer_key_up code:112        name:display_brightn misc:
+
+mods.addRule({
+    description: "Mute mic",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "grave_accent_and_tilde",
+            },
+            to: [
+                {
+                    shell_command: "osascript -e 'set volume input volume 100'",
+                },
+            ],
+            to_after_key_up: [
+                {
+                    shell_command: "osascript -e 'set volume input volume 0'",
+                },
+            ],
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Mute mic",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "home",
+            },
+            to: [
+                {
+                    shell_command: "osascript -e 'set volume input volume 0'",
+                },
+            ],
+            to_after_key_up: [
+                {
+                    shell_command: "osascript -e 'set volume input volume 100'",
+                },
+            ],
+        },
+    ],
+});
+
 mods.addRule(hyper1.getRules());
 mods.addRule(hyper2.getRules());
 
