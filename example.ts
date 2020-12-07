@@ -3,6 +3,7 @@ import {
     HyperKey,
     KarabinerComplexModifications,
     Key,
+    KeyPressTo,
 } from "./lib/karabiner.ts";
 // import { writeHyperKeyImage } from "https://deno.land/x/karabiner@v0.1.1/svg.ts";
 // import {
@@ -402,49 +403,66 @@ mods.addRule({
     ],
 });
 
-// type:consumer_key_do code:112        name:display_brightn misc:
-// type:consumer_key_up code:112        name:display_brightn misc:
+mods.addRule({
+    // https://superuser.com/questions/1043596/mac-osx-remove-hide-window-keyboard-shortcut
+    description: "Disable command+h from hiding windows",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "h",
+                modifiers: {
+                    mandatory: ["left_command"],
+                },
+            },
+        },
+    ],
+});
+
+const UNMUTE: KeyPressTo[] = [
+    {
+        shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"'`,
+    },
+    {
+        shell_command: `sleep 0.25 && osascript -e 'set volume input volume 100'`,
+    },
+];
+
+const MUTE: KeyPressTo[] = [
+    {
+        shell_command: "osascript -e 'set volume input volume 0'",
+    },
+    {
+        shell_command: `sleep 0.25 && osascript -e 'display notification "🔇 muted" sound name "frog"'`,
+    },
+];
 
 mods.addRule({
-    description: "Mute mic",
+    description: "Speak when held down, mute on tap",
     manipulators: [
         {
             type: "basic",
             from: {
                 key_code: "grave_accent_and_tilde",
             },
-            to: [
-                {
-                    shell_command: "osascript -e 'set volume input volume 100'",
-                },
-            ],
-            to_after_key_up: [
-                {
-                    shell_command: "osascript -e 'set volume input volume 0'",
-                },
-            ],
+            to_if_alone: MUTE,
+            to_if_held_down: UNMUTE,
+            to_after_key_up: MUTE,
         },
     ],
 });
 
 mods.addRule({
-    description: "Mute mic",
+    description: "Mute when held down, unmute on tap",
     manipulators: [
         {
             type: "basic",
             from: {
-                key_code: "home",
+                key_code: "pause",
             },
-            to: [
-                {
-                    shell_command: "osascript -e 'set volume input volume 0'",
-                },
-            ],
-            to_after_key_up: [
-                {
-                    shell_command: "osascript -e 'set volume input volume 100'",
-                },
-            ],
+            to_if_alone: UNMUTE,
+            to_if_held_down: MUTE,
+            to_after_key_up: UNMUTE,
         },
     ],
 });
