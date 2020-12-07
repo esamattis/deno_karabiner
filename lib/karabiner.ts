@@ -78,7 +78,7 @@ export interface KeyPressFrom {
     key_code: Key;
     modifiers?: {
         mandatory?: Key[];
-        optional?: Key[];
+        optional?: (Key | "any")[];
     };
 }
 
