@@ -419,23 +419,13 @@ mods.addRule({
     ],
 });
 
-const UNMUTE: KeyPressTo[] = [
-    {
-        shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"'`,
-    },
-    {
-        shell_command: `sleep 0.25 && osascript -e 'set volume input volume 100'`,
-    },
-];
+const UNMUTE: KeyPressTo = {
+    shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"' -e 'delay 0.25' -e 'set volume input volume 100'`,
+};
 
-const MUTE: KeyPressTo[] = [
-    {
-        shell_command: "osascript -e 'set volume input volume 0'",
-    },
-    {
-        shell_command: `sleep 0.25 && osascript -e 'display notification "🔇 muted" sound name "frog"'`,
-    },
-];
+const MUTE: KeyPressTo = {
+    shell_command: `osascript -e 'set volume input volume 0' -e 'delay 0.25' -e 'display notification "🔇 muted" sound name "frog"'`,
+};
 
 mods.addRule({
     description: "Speak when held down, mute on tap",
@@ -445,9 +435,11 @@ mods.addRule({
             from: {
                 key_code: "grave_accent_and_tilde",
             },
-            to_if_alone: MUTE,
-            to_if_held_down: UNMUTE,
-            to_after_key_up: MUTE,
+            to_if_held_down: [UNMUTE],
+            to_after_key_up: [MUTE],
+
+            // Use halt to disable to_after_key_up
+            to_if_alone: [{ ...MUTE, halt: true }],
         },
     ],
 });
@@ -460,9 +452,11 @@ mods.addRule({
             from: {
                 key_code: "pause",
             },
-            to_if_alone: UNMUTE,
-            to_if_held_down: MUTE,
-            to_after_key_up: UNMUTE,
+            to_if_held_down: [MUTE],
+            to_after_key_up: [UNMUTE],
+
+            // Use halt to disable to_after_key_up
+            to_if_alone: [{ ...UNMUTE, halt: true }],
         },
     ],
 });

@@ -89,6 +89,7 @@ export interface KeyPressTo {
     shell_command?: string;
     modifiers?: Key[];
     lazy?: boolean;
+    halt?: boolean;
     set_variable?: {
         name: string;
         value: number | string;
