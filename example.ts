@@ -411,12 +411,24 @@ SpectacleKeys.forEach((key) => {
 const mods = new KarabinerComplexModifications();
 
 mods.addRule({
-    description: "Disable confusing backtic button",
+    description: "Disable confusing backtic button as standalone",
     manipulators: [
         {
             type: "basic",
             from: {
                 key_code: "equal_sign",
+            },
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Disable confusing ¨ button as standalone",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "close_bracket",
             },
         },
     ],
