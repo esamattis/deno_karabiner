@@ -17,11 +17,6 @@ const hyper1 = new HyperKey({
     from: {
         key_code: "caps_lock",
     },
-    to_if_alone: [
-        {
-            key_code: "escape",
-        },
-    ],
 });
 
 const hyper2 = new HyperKey({
@@ -48,7 +43,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "'",
     description: "single quote",
-    key: "j",
+    key: "h",
     to: {
         key_code: "non_us_pound",
     },
@@ -87,7 +82,7 @@ hyper1.bindKey({
 hyper1.bindKey({
     symbol: "`",
     description: "backtick",
-    key: "h",
+    key: "l",
     to: [
         {
             key_code: "equal_sign",
@@ -95,6 +90,17 @@ hyper1.bindKey({
         },
         {
             key_code: "spacebar",
+        },
+    ],
+});
+
+hyper1.bindKey({
+    symbol: "esc",
+    description: "Esc",
+    key: "j",
+    to: [
+        {
+            key_code: "escape",
         },
     ],
 });
@@ -340,7 +346,44 @@ hyper2.bindKey({
     },
 });
 
-const SpectaclKeys: Key[] = [
+hyper2.bindKey({
+    description: "Select and copy line",
+    key: "y",
+    to: [
+        {
+            key_code: "right_arrow",
+            modifiers: ["left_gui"],
+        },
+        {
+            key_code: "left_arrow",
+            modifiers: ["left_gui", "left_shift"],
+        },
+        {
+            key_code: "c",
+            modifiers: ["left_command"],
+        },
+    ],
+});
+
+hyper2.bindKey({
+    description: "Put clipboard content as an new line",
+    key: "p",
+    to: [
+        {
+            key_code: "right_arrow",
+            modifiers: ["left_gui"],
+        },
+        {
+            key_code: "return_or_enter",
+        },
+        {
+            key_code: "v",
+            modifiers: ["left_command"],
+        },
+    ],
+});
+
+const SpectacleKeys: Key[] = [
     "1",
     "2",
     "q",
@@ -354,7 +397,7 @@ const SpectaclKeys: Key[] = [
     "c",
 ];
 
-SpectaclKeys.forEach((key) => {
+SpectacleKeys.forEach((key) => {
     hyper1.bindKey({
         description: "Spectacle " + key,
         key: key,
@@ -415,6 +458,122 @@ mods.addRule({
                     mandatory: ["left_command"],
                 },
             },
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Disable stuff temporarily for learning",
+    manipulators: [
+        {
+            // (
+            type: "basic",
+            from: {
+                key_code: "8",
+                modifiers: {
+                    mandatory: ["left_shift"],
+                },
+            },
+        },
+        {
+            // )
+            type: "basic",
+            from: {
+                key_code: "9",
+                modifiers: {
+                    mandatory: ["left_shift"],
+                },
+            },
+        },
+        {
+            // (
+            type: "basic",
+            from: {
+                key_code: "8",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+        {
+            // )
+            type: "basic",
+            from: {
+                key_code: "9",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+        {
+            // "
+            type: "basic",
+            from: {
+                key_code: "2",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+        {
+            // =
+            type: "basic",
+            from: {
+                key_code: "hyphen",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+        {
+            // /
+            type: "basic",
+            from: {
+                key_code: "7",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Turn <> key to escape",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "grave_accent_and_tilde",
+                modifiers: {
+                    optional: ["any"],
+                },
+            },
+            to: [
+                {
+                    key_code: "escape",
+                },
+            ],
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Turn å to escape",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "open_bracket",
+                modifiers: {
+                    optional: ["any"],
+                },
+            },
+            to: [
+                {
+                    key_code: "escape",
+                },
+            ],
         },
     ],
 });
