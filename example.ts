@@ -65,6 +65,29 @@ hyper1.bindKey({
         key_code: "7",
         modifiers: ["left_option"],
     },
+    conditions: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
+});
+
+hyper1.bindKey({
+    symbol: "|",
+    description: "pipe (rds)",
+    key: "y",
+    to: {
+        key_code: "non_us_backslash",
+        modifiers: ["right_option"],
+    },
+    allowDuplicate: true,
+    conditions: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
 });
 
 hyper1.bindKey({
