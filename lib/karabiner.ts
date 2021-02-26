@@ -140,6 +140,11 @@ export type Condition =
     | DeviceCondition
     | VariableCondition;
 
+export interface AltCondition {
+    disable: Condition[];
+    enable: Condition[];
+}
+
 /**
  * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/
  */
@@ -369,6 +374,33 @@ export class HyperKey {
                 `Cannot bind "${newBinding.description}" "${newBinding.key}" is already defined for hyper key "${this.config.description}" with "${existing.description}"`,
             );
         }
+
+        this.bindings.push(newBinding);
+
+        return {
+            binding: newBinding,
+            alt: this.bindAlt.bind(this, newBinding),
+        };
+    }
+
+    bindAlt(
+        existing: HyperKeyBinding,
+        options: AltCondition,
+        alt: Partial<HyperKeyBinding>,
+    ) {
+        const existingConditions = [...(existing.conditions ?? [])];
+
+        if (existing.conditions) {
+            existing.conditions.push(...options.disable);
+        } else {
+            existing.conditions = options.disable;
+        }
+
+        const newBinding: HyperKeyBinding = {
+            ...existing,
+            ...alt,
+            conditions: [...existingConditions, ...options.enable],
+        };
 
         this.bindings.push(newBinding);
     }
