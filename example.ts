@@ -251,6 +251,19 @@ hyper2.bindKey({
         key_code: "8",
         modifiers: ["left_shift", "left_alt"],
     },
+    conditions: [NotRDS],
+});
+
+hyper2.bindKey({
+    symbol: "{",
+    description: "Open curly bracket (rds)",
+    key: "d",
+    to: {
+        key_code: "7",
+        modifiers: ["right_option"],
+    },
+    allowDuplicate: true,
+    conditions: [IsRDS],
 });
 
 hyper2.bindKey({
@@ -261,6 +274,19 @@ hyper2.bindKey({
         key_code: "9",
         modifiers: ["left_shift", "left_alt"],
     },
+    conditions: [NotRDS],
+});
+
+hyper2.bindKey({
+    symbol: "}",
+    description: "Close curly bracket (rds)",
+    key: "f",
+    to: {
+        key_code: "0",
+        modifiers: ["right_option"],
+    },
+    allowDuplicate: true,
+    conditions: [IsRDS],
 });
 
 hyper2.bindKey({
