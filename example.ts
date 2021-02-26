@@ -340,9 +340,30 @@ hyper2.bindKey({
     key: "semicolon",
     to: {
         key_code: "home",
-        // key_code: "left_arrow",
-        // modifiers: ["left_gui"],
     },
+    conditions: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
+});
+
+hyper2.bindKey({
+    symbol: "⇠",
+    description: "to start of line (chrome)",
+    key: "semicolon",
+    allowDuplicate: true,
+    to: {
+        key_code: "left_arrow",
+        modifiers: ["left_gui"],
+    },
+    conditions: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
 });
 
 hyper2.bindKey({
@@ -351,9 +372,30 @@ hyper2.bindKey({
     key: "quote",
     to: {
         key_code: "end",
-        // key_code: "right_arrow",
-        // modifiers: ["left_gui"],
     },
+    conditions: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
+});
+
+hyper2.bindKey({
+    symbol: "⇢",
+    description: "to end of the line (chrome)",
+    key: "quote",
+    to: {
+        key_code: "right_arrow",
+        modifiers: ["left_gui"],
+    },
+    allowDuplicate: true,
+    conditions: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
 });
 
 hyper2.bindKey({
