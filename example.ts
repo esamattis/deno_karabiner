@@ -30,6 +30,14 @@ const hyper2 = new HyperKey({
     },
 });
 
+const hyper3 = new HyperKey({
+    id: "hyper3",
+    description: "<> key",
+    from: {
+        key_code: "grave_accent_and_tilde",
+    },
+});
+
 hyper1.bindKey({
     symbol: `"`,
     description: "double quote",
@@ -331,8 +339,9 @@ hyper2.bindKey({
     description: "to start of line",
     key: "semicolon",
     to: {
-        key_code: "left_arrow",
-        modifiers: ["left_gui"],
+        key_code: "home",
+        // key_code: "left_arrow",
+        // modifiers: ["left_gui"],
     },
 });
 
@@ -341,8 +350,9 @@ hyper2.bindKey({
     description: "to end of the line",
     key: "quote",
     to: {
-        key_code: "right_arrow",
-        modifiers: ["left_gui"],
+        key_code: "end",
+        // key_code: "right_arrow",
+        // modifiers: ["left_gui"],
     },
 });
 
@@ -460,7 +470,8 @@ mods.addRule({
 
 mods.addRule({
     // https://superuser.com/questions/1043596/mac-osx-remove-hide-window-keyboard-shortcut
-    description: "Disable command+h from hiding windows",
+    description:
+        "Convert command+h to something customizable in apps. It's harcoded to hide windows...",
     manipulators: [
         {
             type: "basic",
@@ -470,6 +481,12 @@ mods.addRule({
                     mandatory: ["left_command"],
                 },
             },
+            to: [
+                {
+                    key_code: "h",
+                    modifiers: ["left_shift", "left_control", "left_gui"],
+                },
+            ],
         },
     ],
 });
@@ -538,6 +555,16 @@ mods.addRule({
             },
         },
         {
+            // 0
+            type: "basic",
+            from: {
+                key_code: "0",
+                modifiers: {
+                    mandatory: ["right_shift"],
+                },
+            },
+        },
+        {
             // /
             type: "basic",
             from: {
@@ -546,26 +573,6 @@ mods.addRule({
                     mandatory: ["right_shift"],
                 },
             },
-        },
-    ],
-});
-
-mods.addRule({
-    description: "Turn <> key to escape",
-    manipulators: [
-        {
-            type: "basic",
-            from: {
-                key_code: "grave_accent_and_tilde",
-                modifiers: {
-                    optional: ["any"],
-                },
-            },
-            to: [
-                {
-                    key_code: "escape",
-                },
-            ],
         },
     ],
 });
@@ -580,6 +587,23 @@ mods.addRule({
                 modifiers: {
                     optional: ["any"],
                 },
+            },
+            to: [
+                {
+                    key_code: "escape",
+                },
+            ],
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Speak when held down, mute on tap",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "non_us_backslash",
             },
             to: [
                 {
@@ -606,7 +630,7 @@ mods.addRule({
         {
             type: "basic",
             from: {
-                key_code: "non_us_backslash",
+                key_code: "pause",
             },
             to_if_held_down: [UNMUTE],
             to_after_key_up: [MUTE],
@@ -623,7 +647,7 @@ mods.addRule({
         {
             type: "basic",
             from: {
-                key_code: "pause",
+                key_code: "scroll_lock",
             },
             to_if_held_down: [MUTE],
             to_after_key_up: [UNMUTE],
@@ -634,8 +658,70 @@ mods.addRule({
     ],
 });
 
+hyper3.bindKey({
+    symbol: `m`,
+    description: "Mute",
+    key: "m",
+    to: MUTE,
+});
+
+hyper3.bindKey({
+    symbol: `u`,
+    description: "Unmute",
+    key: "u",
+    to: UNMUTE,
+});
+
+const SUPER_MOD: Key[] = [
+    "right_alt",
+    "right_command",
+    "right_option",
+    "right_shift",
+];
+
+hyper3.bindKey({
+    symbol: `1pw`,
+    description: "1password",
+    key: "1",
+    to: {
+        key_code: "1",
+        modifiers: SUPER_MOD,
+    },
+});
+
+hyper3.bindKey({
+    symbol: `1pw`,
+    description: "1password",
+    key: "2",
+    to: {
+        key_code: "2",
+        modifiers: SUPER_MOD,
+    },
+});
+
+hyper3.bindKey({
+    symbol: `toggl`,
+    description: "Toggl",
+    key: "t",
+    to: {
+        key_code: "t",
+        modifiers: SUPER_MOD,
+    },
+});
+
+hyper3.bindKey({
+    symbol: "Screenshot",
+    description: "Toggl",
+    key: "z",
+    to: {
+        key_code: "z",
+        modifiers: SUPER_MOD,
+    },
+});
+
 mods.addRule(hyper1.getRules());
 mods.addRule(hyper2.getRules());
+mods.addRule(hyper3.getRules());
 
 // mods.addRule({
 //     description: "Map Caps Lock to Escape",
