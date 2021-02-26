@@ -1,5 +1,6 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
 import {
+    FrontmostApplicationCondition,
     HyperKey,
     KarabinerComplexModifications,
     Key,
@@ -10,6 +11,16 @@ import {
 //     HyperKey,
 //     KarabinerComplexModifications,
 // } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
+
+const IsRDS: FrontmostApplicationCondition = {
+    type: "frontmost_application_if",
+    bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+};
+
+const NotRDS: FrontmostApplicationCondition = {
+    type: "frontmost_application_unless",
+    bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+};
 
 const hyper1 = new HyperKey({
     id: "hyper1",
@@ -65,12 +76,7 @@ hyper1.bindKey({
         key_code: "7",
         modifiers: ["left_option"],
     },
-    conditions: [
-        {
-            type: "frontmost_application_unless",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [NotRDS],
 });
 
 hyper1.bindKey({
@@ -82,12 +88,7 @@ hyper1.bindKey({
         modifiers: ["right_option"],
     },
     allowDuplicate: true,
-    conditions: [
-        {
-            type: "frontmost_application_if",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [IsRDS],
 });
 
 hyper1.bindKey({
@@ -309,12 +310,7 @@ hyper2.bindKey({
     to: {
         key_code: "grave_accent_and_tilde",
     },
-    conditions: [
-        {
-            type: "frontmost_application_unless",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [NotRDS],
 });
 
 hyper2.bindKey({
@@ -325,12 +321,7 @@ hyper2.bindKey({
     to: {
         key_code: "non_us_backslash",
     },
-    conditions: [
-        {
-            type: "frontmost_application_if",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [IsRDS],
 });
 
 hyper2.bindKey({
@@ -341,12 +332,7 @@ hyper2.bindKey({
         key_code: "grave_accent_and_tilde",
         modifiers: ["left_shift"],
     },
-    conditions: [
-        {
-            type: "frontmost_application_unless",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [NotRDS],
 });
 
 hyper2.bindKey({
@@ -358,12 +344,7 @@ hyper2.bindKey({
         modifiers: ["right_shift"],
     },
     allowDuplicate: true,
-    conditions: [
-        {
-            type: "frontmost_application_if",
-            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
-        },
-    ],
+    conditions: [IsRDS],
 });
 
 hyper2.bindKey({
