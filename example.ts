@@ -286,6 +286,28 @@ hyper2.bindKey({
     to: {
         key_code: "grave_accent_and_tilde",
     },
+    conditions: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
+});
+
+hyper2.bindKey({
+    symbol: "<",
+    description: "open angle bracket (rds)",
+    key: "c",
+    allowDuplicate: true,
+    to: {
+        key_code: "non_us_backslash",
+    },
+    conditions: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
 });
 
 hyper2.bindKey({
@@ -296,6 +318,29 @@ hyper2.bindKey({
         key_code: "grave_accent_and_tilde",
         modifiers: ["left_shift"],
     },
+    conditions: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
+});
+
+hyper2.bindKey({
+    symbol: ">",
+    description: "close angle bracket (rds)",
+    key: "v",
+    to: {
+        key_code: "non_us_backslash",
+        modifiers: ["right_shift"],
+    },
+    allowDuplicate: true,
+    conditions: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
 });
 
 hyper2.bindKey({
