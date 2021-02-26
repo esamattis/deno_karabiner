@@ -132,6 +132,9 @@ export interface VariableCondition {
     value: number | string;
 }
 
+/**
+ * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/conditions/
+ */
 export type Condition =
     | FrontmostApplicationCondition
     | DeviceCondition
@@ -282,6 +285,14 @@ export interface HyperKeyBinding {
      * Emit these
      */
     to: KeyPressTo | KeyPressTo[];
+
+    conditions?: Condition[];
+
+    /**
+     * Allow duplicate defition for the same key. Set to true if you want
+     * different behaviour using the conditions
+     */
+    allowDuplicate?: boolean;
 }
 
 /**
@@ -345,9 +356,13 @@ export class HyperKey {
     }
 
     bindKey(newBinding: HyperKeyBinding) {
-        const existing = this.bindings.find((bin) => {
-            return newBinding.key === bin.key;
-        });
+        let existing;
+
+        if (!newBinding.allowDuplicate) {
+            existing = this.bindings.find((bin) => {
+                return newBinding.key === bin.key;
+            });
+        }
 
         if (existing) {
             throw new Error(
@@ -375,6 +390,8 @@ export class HyperKey {
 
     getKeyBindingRules(): Rule[] {
         return this.bindings.map((bin) => {
+            const customConditions = bin.conditions || [];
+
             return {
                 description: `${this.id}: "${bin.key}" to ${bin.description}`,
                 manipulators: [
@@ -384,7 +401,10 @@ export class HyperKey {
                             key_code: bin.key,
                             modifiers: this.config.from.modifiers,
                         },
-                        conditions: [this.virtualModifier.getCondition()],
+                        conditions: [
+                            this.virtualModifier.getCondition(),
+                            ...customConditions,
+                        ],
                         to: [bin.to].flat(),
                     },
                 ],
