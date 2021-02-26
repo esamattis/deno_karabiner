@@ -1,5 +1,6 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
 import {
+    AltCondition,
     FrontmostApplicationCondition,
     HyperKey,
     KarabinerComplexModifications,
@@ -12,14 +13,34 @@ import {
 //     KarabinerComplexModifications,
 // } from "https://deno.land/x/karabiner@v0.1.1/karabiner.ts";
 
-const IsRDS: FrontmostApplicationCondition = {
-    type: "frontmost_application_if",
-    bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+const WhenRDS: AltCondition = {
+    enable: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
+    disable: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+        },
+    ],
 };
 
-const NotRDS: FrontmostApplicationCondition = {
-    type: "frontmost_application_unless",
-    bundle_identifiers: ["^com.microsoft.rdc.macos$"],
+const WhenChrome: AltCondition = {
+    enable: [
+        {
+            type: "frontmost_application_if",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
+    disable: [
+        {
+            type: "frontmost_application_unless",
+            bundle_identifiers: ["^com.google.Chrome$"],
+        },
+    ],
 };
 
 const hyper1 = new HyperKey({
@@ -68,28 +89,23 @@ hyper1.bindKey({
     },
 });
 
-hyper1.bindKey({
-    symbol: "|",
-    description: "pipe",
-    key: "y",
-    to: {
-        key_code: "7",
-        modifiers: ["left_option"],
-    },
-    conditions: [NotRDS],
-});
-
-hyper1.bindKey({
-    symbol: "|",
-    description: "pipe (rds)",
-    key: "y",
-    to: {
-        key_code: "non_us_backslash",
-        modifiers: ["right_option"],
-    },
-    allowDuplicate: true,
-    conditions: [IsRDS],
-});
+hyper1
+    .bindKey({
+        symbol: "|",
+        description: "pipe",
+        key: "y",
+        to: {
+            key_code: "7",
+            modifiers: ["left_option"],
+        },
+    })
+    .alt(WhenRDS, {
+        description: "pipe (rds)",
+        to: {
+            key_code: "non_us_backslash",
+            modifiers: ["right_option"],
+        },
+    });
 
 hyper1.bindKey({
     symbol: ";",
@@ -243,51 +259,41 @@ hyper2.bindKey({
     },
 });
 
-hyper2.bindKey({
-    symbol: "{",
-    description: "Open curly bracket",
-    key: "d",
-    to: {
-        key_code: "8",
-        modifiers: ["left_shift", "left_alt"],
-    },
-    conditions: [NotRDS],
-});
+hyper2
+    .bindKey({
+        symbol: "{",
+        description: "Open curly bracket",
+        key: "d",
+        to: {
+            key_code: "8",
+            modifiers: ["left_shift", "left_alt"],
+        },
+    })
+    .alt(WhenRDS, {
+        description: "Open curly bracket (rds)",
+        to: {
+            key_code: "7",
+            modifiers: ["right_option"],
+        },
+    });
 
-hyper2.bindKey({
-    symbol: "{",
-    description: "Open curly bracket (rds)",
-    key: "d",
-    to: {
-        key_code: "7",
-        modifiers: ["right_option"],
-    },
-    allowDuplicate: true,
-    conditions: [IsRDS],
-});
-
-hyper2.bindKey({
-    symbol: "}",
-    description: "Close curly bracket",
-    key: "f",
-    to: {
-        key_code: "9",
-        modifiers: ["left_shift", "left_alt"],
-    },
-    conditions: [NotRDS],
-});
-
-hyper2.bindKey({
-    symbol: "}",
-    description: "Close curly bracket (rds)",
-    key: "f",
-    to: {
-        key_code: "0",
-        modifiers: ["right_option"],
-    },
-    allowDuplicate: true,
-    conditions: [IsRDS],
-});
+hyper2
+    .bindKey({
+        symbol: "}",
+        description: "Close curly bracket",
+        key: "f",
+        to: {
+            key_code: "9",
+            modifiers: ["left_shift", "left_alt"],
+        },
+    })
+    .alt(WhenRDS, {
+        description: "Close curly bracket (rds)",
+        to: {
+            key_code: "0",
+            modifiers: ["right_option"],
+        },
+    });
 
 hyper2.bindKey({
     symbol: "[",
@@ -329,49 +335,39 @@ hyper2.bindKey({
     },
 });
 
-hyper2.bindKey({
-    symbol: "<",
-    description: "open angle bracket",
-    key: "c",
-    to: {
-        key_code: "grave_accent_and_tilde",
-    },
-    conditions: [NotRDS],
-});
+hyper2
+    .bindKey({
+        symbol: "<",
+        description: "open angle bracket",
+        key: "c",
+        to: {
+            key_code: "grave_accent_and_tilde",
+        },
+    })
+    .alt(WhenRDS, {
+        description: "open angle bracket (rds)",
+        to: {
+            key_code: "non_us_backslash",
+        },
+    });
 
-hyper2.bindKey({
-    symbol: "<",
-    description: "open angle bracket (rds)",
-    key: "c",
-    allowDuplicate: true,
-    to: {
-        key_code: "non_us_backslash",
-    },
-    conditions: [IsRDS],
-});
-
-hyper2.bindKey({
-    symbol: ">",
-    description: "close angle bracket",
-    key: "v",
-    to: {
-        key_code: "grave_accent_and_tilde",
-        modifiers: ["left_shift"],
-    },
-    conditions: [NotRDS],
-});
-
-hyper2.bindKey({
-    symbol: ">",
-    description: "close angle bracket (rds)",
-    key: "v",
-    to: {
-        key_code: "non_us_backslash",
-        modifiers: ["right_shift"],
-    },
-    allowDuplicate: true,
-    conditions: [IsRDS],
-});
+hyper2
+    .bindKey({
+        symbol: ">",
+        description: "close angle bracket",
+        key: "v",
+        to: {
+            key_code: "grave_accent_and_tilde",
+            modifiers: ["left_shift"],
+        },
+    })
+    .alt(WhenRDS, {
+        description: "close angle bracket (rds)",
+        to: {
+            key_code: "non_us_backslash",
+            modifiers: ["right_shift"],
+        },
+    });
 
 hyper2.bindKey({
     symbol: "⬅️",
@@ -409,69 +405,39 @@ hyper2.bindKey({
     },
 });
 
-hyper2.bindKey({
-    symbol: "⇠",
-    description: "to start of line",
-    key: "semicolon",
-    to: {
-        key_code: "home",
-    },
-    conditions: [
-        {
-            type: "frontmost_application_unless",
-            bundle_identifiers: ["^com.google.Chrome$"],
+hyper2
+    .bindKey({
+        symbol: "⇠",
+        description: "to start of line",
+        key: "semicolon",
+        to: {
+            key_code: "home",
         },
-    ],
-});
+    })
+    .alt(WhenChrome, {
+        description: "to start of line (chrome)",
+        to: {
+            key_code: "left_arrow",
+            modifiers: ["left_gui"],
+        },
+    });
 
-hyper2.bindKey({
-    symbol: "⇠",
-    description: "to start of line (chrome)",
-    key: "semicolon",
-    allowDuplicate: true,
-    to: {
-        key_code: "left_arrow",
-        modifiers: ["left_gui"],
-    },
-    conditions: [
-        {
-            type: "frontmost_application_if",
-            bundle_identifiers: ["^com.google.Chrome$"],
+hyper2
+    .bindKey({
+        symbol: "⇢",
+        description: "to end of the line",
+        key: "quote",
+        to: {
+            key_code: "end",
         },
-    ],
-});
-
-hyper2.bindKey({
-    symbol: "⇢",
-    description: "to end of the line",
-    key: "quote",
-    to: {
-        key_code: "end",
-    },
-    conditions: [
-        {
-            type: "frontmost_application_unless",
-            bundle_identifiers: ["^com.google.Chrome$"],
+    })
+    .alt(WhenChrome, {
+        description: "to end of the line (chrome)",
+        to: {
+            key_code: "right_arrow",
+            modifiers: ["left_gui"],
         },
-    ],
-});
-
-hyper2.bindKey({
-    symbol: "⇢",
-    description: "to end of the line (chrome)",
-    key: "quote",
-    to: {
-        key_code: "right_arrow",
-        modifiers: ["left_gui"],
-    },
-    allowDuplicate: true,
-    conditions: [
-        {
-            type: "frontmost_application_if",
-            bundle_identifiers: ["^com.google.Chrome$"],
-        },
-    ],
-});
+    });
 
 hyper2.bindKey({
     description: "Select and copy line",
