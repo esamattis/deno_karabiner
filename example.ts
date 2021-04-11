@@ -698,7 +698,7 @@ mods.addRule({
 });
 
 const UNMUTE: KeyPressTo = {
-    shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"' -e 'delay 0.25' -e 'set volume input volume 100'`,
+    shell_command: `osascript -e 'display notification "🔊 🔴 UNMUTED" sound name "pop"' -e 'delay 0.25' -e 'set volume input volume 70'`,
     // shell_command: `echo unmute >> ~/mute.log`,
 };
 
