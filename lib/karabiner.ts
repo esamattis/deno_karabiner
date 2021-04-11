@@ -457,3 +457,82 @@ export class HyperKey {
         return [this.getHyperKeyRule(), ...this.getKeyBindingRules()];
     }
 }
+
+let sequence = 0;
+export function doubleTap(options: {
+    description: string;
+    key_code: Key;
+    to: KeyPressTo[];
+}): Rule {
+    // const varName = "dtap-" + String(++sequence);
+
+    const varName = "dtap";
+
+    return {
+        description: options.description,
+        manipulators: [
+            {
+                type: "basic",
+                conditions: [
+                    {
+                        type: "variable_if",
+                        name: varName,
+                        value: 1,
+                    },
+                ],
+                from: {
+                    key_code: options.key_code,
+                },
+                to: [
+                    ...options.to,
+                    {
+                        halt: true,
+                        set_variable: {
+                            name: varName,
+                            value: 0,
+                        },
+                    },
+                ],
+            },
+
+            {
+                type: "basic",
+                from: {
+                    key_code: options.key_code,
+                },
+                to: [
+                    {
+                        set_variable: {
+                            name: varName,
+                            value: 1,
+                        },
+                    },
+                ],
+                to_delayed_action: {
+                    to_if_invoked: [
+                        {
+                            set_variable: {
+                                name: varName,
+                                value: 0,
+                            },
+                        },
+                        {
+                            key_code: options.key_code,
+                        },
+                    ],
+                    to_if_canceled: [
+                        {
+                            set_variable: {
+                                name: varName,
+                                value: 0,
+                            },
+                        },
+                        // {
+                        //     key_code: options.key_code,
+                        // },
+                    ],
+                },
+            },
+        ],
+    };
+}

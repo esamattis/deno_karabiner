@@ -1,6 +1,7 @@
 import { writeHyperKeyImage } from "./lib/svg.ts";
 import {
     AltCondition,
+    doubleTap,
     FrontmostApplicationCondition,
     HyperKey,
     KarabinerComplexModifications,
@@ -805,6 +806,18 @@ hyper3.bindKey({
 mods.addRule(hyper1.getRules());
 mods.addRule(hyper2.getRules());
 mods.addRule(hyper3.getRules());
+
+mods.addRule(
+    doubleTap({
+        description: "Double tap n to escape",
+        key_code: "n",
+        to: [
+            {
+                key_code: "escape",
+            },
+        ],
+    }),
+);
 
 // mods.addRule({
 //     description: "Map Caps Lock to Escape",
