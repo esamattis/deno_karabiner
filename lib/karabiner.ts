@@ -155,6 +155,15 @@ export interface Manipulator {
     to_if_alone?: KeyPressTo[];
     to_after_key_up?: KeyPressTo[];
     to_if_held_down?: KeyPressTo[];
+
+    /**
+     * https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/to-delayed-action/
+     */
+    to_delayed_action?: {
+        to_if_invoked?: KeyPressTo[];
+        to_if_canceled?: KeyPressTo[];
+    };
+
     conditions?: Condition[];
 }
 
