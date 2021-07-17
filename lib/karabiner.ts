@@ -40,6 +40,8 @@ export type Key =
     | "pause"
     | "home"
     | "end"
+    | "page_up"
+    | "page_down"
     | "scroll_lock"
     | "print_screen"
     | "1"
@@ -77,7 +79,20 @@ export type Key =
     | "v"
     | "b"
     | "n"
-    | "m";
+    | "m"
+    | "fn"
+    | "display_brightness_decrement"
+    | "display_brightness_increment"
+    | "mission_control"
+    | "launchpad"
+    | "illumination_decrement"
+    | "illumination_increment"
+    | "rewind"
+    | "play_or_pause"
+    | "fastforward"
+    | "mute"
+    | "volume_decrement"
+    | "volume_increment";
 
 export interface KeyPressFrom {
     key_code: Key;
