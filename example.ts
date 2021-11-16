@@ -755,6 +755,15 @@ hyper3.bindKey({
     to: UNMUTE,
 });
 
+hyper3.bindKey({
+    symbol: `b`,
+    description: "Toggle nightlight",
+    key: "b",
+    to: {
+        shell_command: `/usr/local/bin/nightlight toggle && osascript -e 'display notification "Nightlight!" sound name "frog"'`,
+    },
+});
+
 const SUPER_MOD: Key[] = [
     "right_alt",
     "right_command",
