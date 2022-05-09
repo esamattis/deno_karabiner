@@ -681,12 +681,15 @@ mods.addRule({
 });
 
 mods.addRule({
-    description: "Speak when held down, mute on tap",
+    description: "Turn section key to escape",
     manipulators: [
         {
             type: "basic",
             from: {
                 key_code: "non_us_backslash",
+                modifiers: {
+                    optional: ["any"],
+                },
             },
             to: [
                 {
