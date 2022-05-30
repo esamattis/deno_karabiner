@@ -482,7 +482,10 @@ export class HyperKey {
                         type: "basic",
                         from: {
                             key_code: bin.key,
-                            modifiers: this.config.from.modifiers,
+                            modifiers: {
+                                ...this.config.from.modifiers,
+                                optional: ["any"]
+                            }
                         },
                         conditions: [
                             this.virtualModifier.getCondition(),

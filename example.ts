@@ -56,9 +56,6 @@ const hyper2 = new HyperKey({
     description: "Alt Gr / Right Command",
     from: {
         key_code: "right_command",
-        modifiers: {
-            optional: ["left_shift", "left_option"],
-        },
     },
 });
 
@@ -574,91 +571,91 @@ mods.addRule({
     ],
 });
 
-mods.addRule({
-    description: "Disable stuff temporarily for learning",
-    manipulators: [
-        {
-            // (
-            type: "basic",
-            from: {
-                key_code: "8",
-                modifiers: {
-                    mandatory: ["left_shift"],
-                },
-            },
-        },
-        {
-            // )
-            type: "basic",
-            from: {
-                key_code: "9",
-                modifiers: {
-                    mandatory: ["left_shift"],
-                },
-            },
-        },
-        {
-            // (
-            type: "basic",
-            from: {
-                key_code: "8",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-        {
-            // )
-            type: "basic",
-            from: {
-                key_code: "9",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-        {
-            // "
-            type: "basic",
-            from: {
-                key_code: "2",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-        {
-            // =
-            type: "basic",
-            from: {
-                key_code: "hyphen",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-        {
-            // 0
-            type: "basic",
-            from: {
-                key_code: "0",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-        {
-            // /
-            type: "basic",
-            from: {
-                key_code: "7",
-                modifiers: {
-                    mandatory: ["right_shift"],
-                },
-            },
-        },
-    ],
-});
+// mods.addRule({
+//     description: "Disable stuff temporarily for learning",
+//     manipulators: [
+//         {
+//             // (
+//             type: "basic",
+//             from: {
+//                 key_code: "8",
+//                 modifiers: {
+//                     mandatory: ["left_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // )
+//             type: "basic",
+//             from: {
+//                 key_code: "9",
+//                 modifiers: {
+//                     mandatory: ["left_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // (
+//             type: "basic",
+//             from: {
+//                 key_code: "8",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // )
+//             type: "basic",
+//             from: {
+//                 key_code: "9",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // "
+//             type: "basic",
+//             from: {
+//                 key_code: "2",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // =
+//             type: "basic",
+//             from: {
+//                 key_code: "hyphen",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // 0
+//             type: "basic",
+//             from: {
+//                 key_code: "0",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//         {
+//             // /
+//             type: "basic",
+//             from: {
+//                 key_code: "7",
+//                 modifiers: {
+//                     mandatory: ["right_shift"],
+//                 },
+//             },
+//         },
+//     ],
+// });
 
 mods.addRule({
     description: "Turn å to escape",
