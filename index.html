@@ -19,19 +19,20 @@
                 <script>
                     (function clientCode() {
     let doc;
+    // @ts-ignore Deno wtf? How to use dom types?
     doc = document;
     const data = JSON.parse(doc.getElementById("data").innerHTML);
     const textEls = doc.getElementsByTagName("text");
-    for (const el of textEls) {
+    for (const el of textEls){
         if (el.innerHTML === "todo") {
             el.innerHTML = "";
         }
     }
-    for (const binding of data.bindings) {
+    for (const binding of data.bindings){
         const key = `${binding.hyperKeyId}-${binding.keyCode}`;
-        const el = doc.getElementById(key);
-        if (el) {
-            el.innerHTML = binding.symbol;
+        const el1 = doc.getElementById(key);
+        if (el1) {
+            el1.innerHTML = binding.symbol;
         }
     }
     doc.getElementById("svg").style.display = "block";
