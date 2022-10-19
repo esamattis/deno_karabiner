@@ -811,6 +811,16 @@ hyper3.bindKey({
     },
 });
 
+hyper3.bindKey({
+    symbol: "Voice Over",
+    description: "Toggle Voice Over",
+    key: "v",
+    to: {
+        key_code: "v",
+        modifiers: SUPER_MOD,
+    },
+});
+
 mods.addRule(hyper1.getRules());
 mods.addRule(hyper2.getRules());
 mods.addRule(hyper3.getRules());
