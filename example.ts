@@ -105,13 +105,18 @@ hyper1
     });
 
 hyper1.bindKey({
-    symbol: ";",
+    symbol: "~",
     description: "semicolon",
     key: "n",
-    to: {
-        key_code: "comma",
-        modifiers: ["left_shift"],
-    },
+    to: [
+        {
+            key_code: "close_bracket",
+            modifiers: ["right_option"],
+        },
+        {
+            key_code: "spacebar",
+        },
+    ],
 });
 
 hyper1.bindKey({
