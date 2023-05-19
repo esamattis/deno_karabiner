@@ -93,7 +93,7 @@ hyper1
         key: "y",
         to: {
             key_code: "7",
-            modifiers: ["left_option"],
+            modifiers: ["right_option"],
         },
     })
     .alt(WhenRDS, {
@@ -171,7 +171,7 @@ hyper2.bindKey({
     key: "t",
     to: {
         key_code: "7",
-        modifiers: ["left_option", "left_shift"],
+        modifiers: ["right_option", "left_shift"],
     },
 });
 
@@ -268,7 +268,7 @@ hyper2
         key: "d",
         to: {
             key_code: "8",
-            modifiers: ["left_shift", "left_alt"],
+            modifiers: ["left_shift", "right_option"],
         },
     })
     .alt(WhenRDS, {
@@ -286,7 +286,7 @@ hyper2
         key: "f",
         to: {
             key_code: "9",
-            modifiers: ["left_shift", "left_alt"],
+            modifiers: ["left_shift", "right_option"],
         },
     })
     .alt(WhenRDS, {
