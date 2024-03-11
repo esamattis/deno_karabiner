@@ -67,6 +67,16 @@ const hyper3 = new HyperKey({
     },
 });
 
+hyper2.bindKey({
+    symbol: "@",
+    description: "At sign",
+    key: "a",
+    to: {
+        key_code: "2",
+        modifiers: ["right_option"],
+    },
+});
+
 hyper1.bindKey({
     symbol: `"`,
     description: "double quote",
