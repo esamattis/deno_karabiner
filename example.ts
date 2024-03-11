@@ -506,6 +506,30 @@ SpectacleKeys.forEach((key) => {
 const mods = new KarabinerComplexModifications();
 
 mods.addRule({
+    description: "Map command to left option",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "left_option",
+            },
+            to: [
+                {
+                    key_code: "left_command",
+                    modifiers: ["left_shift"],
+                },
+            ],
+            conditions: [
+                {
+                    type: "frontmost_application_if",
+                    bundle_identifiers: ["^com.neovide.neovide"],
+                },
+            ],
+        },
+    ],
+});
+
+mods.addRule({
     description: "Disable confusing backtic button as standalone",
     manipulators: [
         {
