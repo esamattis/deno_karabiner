@@ -710,9 +710,23 @@ mods.addRule({
 
 mods.addRule({
     // https://superuser.com/questions/1043596/mac-osx-remove-hide-window-keyboard-shortcut
-    description:
-        "Convert command+h to something customizable in apps. It's harcoded to hide windows...",
+    description: "Disable command+h",
     manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "h",
+                modifiers: {
+                    mandatory: ["right_command"],
+                },
+            },
+            to: [
+                // {
+                //     key_code: "h",
+                //     modifiers: ["left_shift", "left_control", "left_gui"],
+                // },
+            ],
+        },
         {
             type: "basic",
             from: {
@@ -722,11 +736,36 @@ mods.addRule({
                 },
             },
             to: [
-                {
-                    key_code: "h",
-                    modifiers: ["left_shift", "left_control", "left_gui"],
-                },
+                // {
+                //     key_code: "h",
+                //     modifiers: ["left_shift", "left_control", "left_gui"],
+                // },
             ],
+        },
+    ],
+});
+
+mods.addRule({
+    // https://superuser.com/questions/1043596/mac-osx-remove-hide-window-keyboard-shortcut
+    description: "Disable command+m",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "m",
+                modifiers: {
+                    mandatory: ["left_command"],
+                },
+            },
+        },
+        {
+            type: "basic",
+            from: {
+                key_code: "m",
+                modifiers: {
+                    mandatory: ["right_command"],
+                },
+            },
         },
     ],
 });
@@ -818,7 +857,7 @@ mods.addRule({
 // });
 
 mods.addRule({
-    description: "Turn å to escape",
+    description: "Turn å to backspace",
     manipulators: [
         {
             type: "basic",
@@ -830,7 +869,7 @@ mods.addRule({
             },
             to: [
                 {
-                    key_code: "escape",
+                    key_code: "delete_or_backspace",
                 },
             ],
         },
@@ -1046,7 +1085,7 @@ mods.addRule({
             },
             to: [
                 {
-                    key_code: "left_control",
+                    key_code: "tab",
                 },
             ],
         },

@@ -2,6 +2,4 @@
 
 set -eu
 
-file=$HOME/.config/karabiner/karabiner.json
-
-exec deno run --allow-env --allow-read --allow-write example.ts
+exec deno run --allow-env --allow-read --allow-write ${1:-example.ts}
