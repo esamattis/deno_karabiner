@@ -313,7 +313,7 @@ hyper1.bindKey({
     key: "spacebar",
     to: [
         {
-            key_code: "delete_or_backspace",
+            key_code: "escape",
         },
     ],
 });
@@ -883,6 +883,22 @@ mods.addRule({
             type: "basic",
             from: {
                 key_code: "non_us_backslash",
+                modifiers: {
+                    optional: ["any"],
+                },
+            },
+            to: [HYPER],
+        },
+    ],
+});
+
+mods.addRule({
+    description: "Turn tab key to super key",
+    manipulators: [
+        {
+            type: "basic",
+            from: {
+                key_code: "tab",
                 modifiers: {
                     optional: ["any"],
                 },
